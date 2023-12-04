@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace akasztofa
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Fooldal.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Fooldal : Page
     {
-        public MainWindow()
+        public Fooldal()
         {
             InitializeComponent();
-            Fooldal fooldalpage = new Fooldal();
-            sajatframe.NavigationService.Navigate(fooldalpage);
         }
     }
 }
