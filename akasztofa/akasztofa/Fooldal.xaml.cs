@@ -19,8 +19,12 @@ namespace akasztofa
     /// <summary>
     /// Interaction logic for Fooldal.xaml
     /// </summary>
+
     public partial class Fooldal : Page
     {
+        static public string jatekosnevekod;
+        static public bool jatekosnevekodvan = false;
+
         class Szo
         {//itt jonnek be a szavak
             public string Alak { get; set; }
@@ -164,6 +168,13 @@ namespace akasztofa
         public Fooldal()
         {
             InitializeComponent();
+
+        }
+
+        private void Nev_ok(object sender, RoutedEventArgs e)
+        {
+            jatekosnevekod = jatekos_nev.Text;
+            jatekosnevekodvan = true;
         }
     }
 }
