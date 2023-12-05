@@ -22,8 +22,8 @@ namespace akasztofa
 
     public partial class Fooldal : Page
     {
-        static public string jatekosnevekod;
-        static public bool jatekosnevekodvan = false;
+        //static public string jatekosnevekod;
+        //static public bool jatekosnevekodvan = false;
 
         class Szo
         {//itt jonnek be a szavak
@@ -95,7 +95,7 @@ namespace akasztofa
                 SzavakBetoltese();
                 Kor = 1;
             }
-            private void JatekosokBetoltese()
+            public void JatekosokBetoltese()
             {
                 foreach (string sor in File.ReadAllLines("jatekosok.txt"))
                     jatekosok.Add(new Jatekos(sor, false));
@@ -168,13 +168,24 @@ namespace akasztofa
         public Fooldal()
         {
             InitializeComponent();
-
+            Jatek jatek = new Jatek();
+            eredmenyek1.Text = "ide jonnek majd az eredmenyek";
+            Jatekos jatekos = new Jatekos(jatekos_nev.Text);
+            eredmenyek1.Text = jatekos.Eredmenyek().First().ToString();
         }
 
         private void Nev_ok(object sender, RoutedEventArgs e)
         {
-            jatekosnevekod = jatekos_nev.Text;
-            jatekosnevekodvan = true;
+            //jatekosnevekod = jatekos_nev.Text;
+            //jatekosnevekodvan = true;
+            Jatek jatek = new Jatek();
+            jatek.JatekosBelepese(jatekos_nev.Text);
+            //jatekosnevekod = jatekos_nev.Text;
+            //jatekosnevekodvan = true;
+   
+            // Call JatekosokMentese to save the player's progress
+            jatek.JatekosokMentese();
+
         }
     }
 }

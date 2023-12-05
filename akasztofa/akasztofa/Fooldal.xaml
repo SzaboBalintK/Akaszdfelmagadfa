@@ -25,6 +25,7 @@
         <Button x:Name="j_nev_ok" Content="Név ok" HorizontalAlignment="Left" Margin="287,39,0,0" VerticalAlignment="Top" Click="Nev_ok"/>
         <Label Content="Név" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="eredmenyek" Content="Label" HorizontalAlignment="Left" Margin="251,158,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="eredmenyek1" HorizontalAlignment="Left" Margin="555,171,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
 
 
