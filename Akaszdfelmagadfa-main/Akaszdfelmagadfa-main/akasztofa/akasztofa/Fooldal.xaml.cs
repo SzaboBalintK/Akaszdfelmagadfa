@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace akasztofa
 {
-    /// <summary>
-    /// Interaction logic for Fooldal.xaml
-    /// </summary>
     public partial class Fooldal : Page
     {
         class Szo
