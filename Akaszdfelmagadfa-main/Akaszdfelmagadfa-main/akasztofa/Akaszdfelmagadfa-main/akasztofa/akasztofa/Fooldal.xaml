@@ -28,11 +28,17 @@
         <RadioButton Grid.Column="2" Grid.Row="0" Content="Biológia" Width="96" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         <RadioButton Grid.Column="2" Grid.Row="0" Content="Matematika" Width="96" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Label Grid.Column="1" Grid.Row="0" Content="Témák:" HorizontalAlignment="Right" Height="25" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Grid.Row="1" Content="Megoldás:" HorizontalAlignment="Center" Height="25" VerticalAlignment="Top"/>
         <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="---------------" Width="150" Height="100"/>
+        <Label Grid.Column="1" Grid.Row="2" Content="Betűs tipp:" HorizontalAlignment="Center" Height="25" VerticalAlignment="Top"/>
         <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text=" " Width="120" Height="100"/>
         <Button Grid.Column="1" Grid.Row="2" Content="Tipp" Width="50" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
         <Image Grid.Column="2" Grid.Row="2" Height="100" Width="100" Source="/elso_hiba.png"/>
-
+        <Label Grid.Column="0" Grid.Row="2" Content="Szavas tipp:" HorizontalAlignment="Center" Height="25" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="0" Grid.Row="2" TextWrapping="Wrap" Text=" " Width="120" Height="100"/>
+        <Button Grid.Column="0" Grid.Row="2" Content="Tipp" Width="50" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <Label Grid.Column="2" Grid.Row="1" Content="Legutóbbi Eredmény:" HorizontalAlignment="Center" Height="25" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text=" " Width="120" Height="100"/>
 
     </Grid>
 </Page>
