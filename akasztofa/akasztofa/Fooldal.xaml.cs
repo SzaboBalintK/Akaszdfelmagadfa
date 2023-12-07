@@ -169,9 +169,9 @@ namespace akasztofa
         {
             InitializeComponent();
             Jatek jatek = new Jatek();
-            eredmenyek1.Text = "ide jonnek majd az eredmenyek";
+            eredmenyek.Text = "ide jonnek majd az eredmenyek";
             Jatekos jatekos = new Jatekos(jatekos_nev.Text);
-            eredmenyek1.Text = jatekos.Eredmenyek().First().ToString();
+            eredmenyek.Text = jatekos.Eredmenyek().Last().ToString();
         }
 
         private void Nev_ok(object sender, RoutedEventArgs e)
@@ -186,6 +186,43 @@ namespace akasztofa
             // Call JatekosokMentese to save the player's progress
             jatek.JatekosokMentese();
 
+        }
+
+        private void text_change(object sender, TextChangedEventArgs e)
+        {
+            Jatek jatek = new Jatek();
+            jatek.JatekosBelepese(jatekos_nev.Text.ToString());
+
+            // Find the specific player
+            Jatekos jatekos = jatek.Jatekos;
+
+            // Display the player's results
+            if (jatekos != null)
+            {
+                eredmenyek.Text = string.Join(Environment.NewLine, jatekos.Eredmenyek().Take(3));
+            }
+            else
+            {
+                eredmenyek.Text = "Player not found.";
+            }
+        }
+
+        private void jatekos_betolt(object sender, RoutedEventArgs e)
+        {
+            Jatek jatek = new Jatek();
+            /*jatek.JatekosBelepese(jatekos_nev.Text.ToString());
+
+            // Find the specific player
+            Jatekos jatekos = jatek.Jatekos;
+
+            if (jatekos != null)
+            {
+                eredmenyek.Text = string.Join(Environment.NewLine, jatekos.Eredmenyek().Take(3));
+            }
+            else
+            {
+                eredmenyek.Text = "Player not found.";
+            }*/
         }
     }
 }
