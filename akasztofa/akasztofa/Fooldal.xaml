@@ -22,11 +22,12 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Content="Felhasználó:" HorizontalAlignment="Center" Height="25" VerticalAlignment="Top"/>
-        <TextBox Grid.Column="0" Grid.Row="0" x:Name="jatekos_nev" TextWrapping="Wrap" Text="" Width="213" Height="24" TextChanged="text_change"/>
-        <Button Grid.Column="0" Grid.Row="0" x:Name="jatekos_nev_mentes" Width="50" Height="25" Content="Mentés" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="jatekos_betolt"/>
-        <RadioButton Grid.Column="2" Grid.Row="0" Content="Informatika" Width="96" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
-        <RadioButton Grid.Column="2" Grid.Row="0" Content="Biológia" Width="96" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <RadioButton Grid.Column="2" Grid.Row="0" Content="Matematika" Width="96" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBox Grid.Column="0" Grid.Row="0" x:Name="jatekos_nev" TextWrapping="Wrap" Text="" Width="213" Height="24"/>
+        <Button Grid.Column="0" Grid.Row="0" x:Name="jatekos_nev_mentes" Width="110" Height="25" Content="Beállítások mentése
+                " VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="jatekos_betolt"/>
+        <RadioButton x:Name="informatikajelol" Grid.Column="2" Grid.Row="0" Content="Informatika" Width="96" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Checked="Informatika_bool_info"/>
+        <RadioButton x:Name="biologiajelol" Grid.Column="2" Grid.Row="0" Content="Biológia" Width="96" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Checked="biologia_bool_info"/>
+        <RadioButton x:Name="matekjelol" Grid.Column="2" Grid.Row="0" Content="Matematika" Width="96" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Checked="Matek_bool_info"/>
         <Label Grid.Column="1" Grid.Row="0" Content="Témák:" HorizontalAlignment="Right" Height="25" VerticalAlignment="Top"/>
         <Label Grid.Column="1" Grid.Row="1" Content="Megoldás:" HorizontalAlignment="Center" Height="25" VerticalAlignment="Top"/>
         <TextBox Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="---------------" Width="150" Height="100"/>
@@ -38,7 +39,7 @@
         <TextBox Grid.Column="0" Grid.Row="2" TextWrapping="Wrap" Text=" " Width="120" Height="100"/>
         <Button Grid.Column="0" Grid.Row="2" Content="Tipp" Width="50" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
         <Label Grid.Column="2" Grid.Row="1" Content="Legutóbbi Eredmény:" HorizontalAlignment="Center" Height="25" VerticalAlignment="Top"/>
-        <TextBox x:Name="eredmenyek" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text=" " Width="120" Height="100"/>
+        <TextBox x:Name="eredmenyek" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text=" " Width="240" Height="100"/>
 
     </Grid>
 </Page>

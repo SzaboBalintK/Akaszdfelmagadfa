@@ -24,6 +24,9 @@ namespace akasztofa
     {
         //static public string jatekosnevekod;
         //static public bool jatekosnevekodvan = false;
+        static public bool matekbool = false;
+        static public bool biologiabool = false;
+        static public bool informatikabool = false;
 
         class Szo
         {//itt jonnek be a szavak
@@ -80,7 +83,9 @@ namespace akasztofa
             }
         }
         class Jatek
-        {
+        {// ez is uj
+            public Szo SelectedWord => Szo;
+            //idáig
             public Jatekos Jatekos { get; private set; }
             private List<Jatekos> jatekosok = new List<Jatekos>();
             public char Tema { get; set; }
@@ -116,16 +121,23 @@ namespace akasztofa
                     jatekosok.Add(Jatekos);
                 }
             }
-            private void SzavakBetoltese()
+            public void SzavakBetoltese()
             {
                 foreach (string sor in File.ReadAllLines("szavak.txt"))
                     szavak.Add(new Szo(sor));
+                /*for (int i = 0; i < szavak.Count; i++)
+                { var ide = szavak[i+1].Alak;
+                    MessageBox.Show(Convert.ToString(ide));
+                    break;
+                }*/
+                
             }
             public void SzoValasztas()
             {
                 Random vgen = new Random();
                 do Szo = szavak[vgen.Next(szavak.Count)]; while (Szo.Tema != Tema);
                 Minta = new string('*', Szo.Alak.Length).ToCharArray();
+                MessageBox.Show(Convert.ToString(Minta));
             }
             public bool UjKor()
             {
@@ -170,8 +182,8 @@ namespace akasztofa
             InitializeComponent();
             Jatek jatek = new Jatek();
             eredmenyek.Text = "ide jonnek majd az eredmenyek";
-            Jatekos jatekos = new Jatekos(jatekos_nev.Text);
-            eredmenyek.Text = jatekos.Eredmenyek().Last().ToString();
+            //Jatekos jatekos = new Jatekos(jatekos_nev.Text);
+            //eredmenyek.Text = jatekos.Eredmenyek().Last().ToString();
         }
 
         private void Nev_ok(object sender, RoutedEventArgs e)
@@ -180,6 +192,7 @@ namespace akasztofa
             //jatekosnevekodvan = true;
             Jatek jatek = new Jatek();
             jatek.JatekosBelepese(jatekos_nev.Text);
+
             //jatekosnevekod = jatekos_nev.Text;
             //jatekosnevekodvan = true;
    
@@ -188,41 +201,55 @@ namespace akasztofa
 
         }
 
-        private void text_change(object sender, TextChangedEventArgs e)
-        {
-            Jatek jatek = new Jatek();
-            jatek.JatekosBelepese(jatekos_nev.Text.ToString());
-
-            // Find the specific player
-            Jatekos jatekos = jatek.Jatekos;
-
-            // Display the player's results
-            if (jatekos != null)
-            {
-                eredmenyek.Text = string.Join(Environment.NewLine, jatekos.Eredmenyek().Take(3));
-            }
-            else
-            {
-                eredmenyek.Text = "Player not found.";
-            }
-        }
 
         private void jatekos_betolt(object sender, RoutedEventArgs e)
         {
             Jatek jatek = new Jatek();
-            /*jatek.JatekosBelepese(jatekos_nev.Text.ToString());
+            jatek.JatekosBelepese(jatekos_nev.Text.ToString());
+            //ez itt a tesztelés helye
 
-            // Find the specific player
+            Szo selectedWord = jatek.SelectedWord;
+            MessageBox.Show(Convert.ToString(selectedWord));
+            //MessageBox.Show(Convert.ToString(jatek.SzoValasztas()));
             Jatekos jatekos = jatek.Jatekos;
-
-            if (jatekos != null)
+            /*if (jatekos != null)
             {
                 eredmenyek.Text = string.Join(Environment.NewLine, jatekos.Eredmenyek().Take(3));
             }
             else
-            {
+            {//majd lehet nem kell
                 eredmenyek.Text = "Player not found.";
             }*/
+        }
+
+        private void Matek_bool_info(object sender, RoutedEventArgs e)
+        {
+
+                matekbool = true;
+                biologiabool = false;
+                informatikabool = false;
+                //biologiajelol.IsChecked = false;
+                //informatikajelol.IsChecked = false;
+
+        }
+
+        private void biologia_bool_info(object sender, RoutedEventArgs e)
+        {
+                matekbool = false;
+                biologiabool = true;
+                informatikabool = false;
+                //biologiajelol.IsChecked = false;
+                //informatikajelol.IsChecked = false;
+        }
+
+
+        private void Informatika_bool_info(object sender, RoutedEventArgs e)
+        {
+            matekbool = false;
+            biologiabool = false;
+            informatikabool = true;
+            //biologiajelol.IsChecked = false;
+            //informatikajelol.IsChecked = false;
         }
     }
 }
