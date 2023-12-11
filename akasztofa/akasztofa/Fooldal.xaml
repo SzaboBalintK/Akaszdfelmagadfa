@@ -33,6 +33,7 @@
         <Button x:Name="szo_tipp" Grid.Column="0" Grid.Row="2" Content="Tipp" Width="50" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="szo_hajo"/>
         <Label Grid.Column="2" Grid.Row="1" Content="Legutóbbi Eredmény:" HorizontalAlignment="Center" Height="25" VerticalAlignment="Top"/>
         <TextBox x:Name="eredmenyek" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text=" " Width="240" Height="100"/>
+        <Label x:Name="asdasd" Content="Eddig tippelt betűk:" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
 
     </Grid>
 </Page>

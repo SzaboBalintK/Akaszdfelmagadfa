@@ -31,6 +31,7 @@ namespace akasztofa
         //static public bool informatikabool = false;
         static public string kitalalndoszo;
         static public string ide;
+        public List<char> eddigitippek = new List<char>();
 
 
         class Szo
@@ -209,45 +210,69 @@ namespace akasztofa
 
 
         private void jatekos_betolt()
-        {
-            Jatek jatek = new Jatek();
-            Jatekos jatekos = jatek.Jatekos;
+{
+    Jatek jatek = new Jatek();
+    Jatekos jatekos = jatek.Jatekos;
 
-            List<Szo> szavak = new List<Szo>();
-            foreach (string sor in File.ReadAllLines("szavak.txt"))
-                szavak.Add(new Szo(sor));
+    List<Szo> szavak = new List<Szo>();
+    foreach (string sor in File.ReadAllLines("szavak.txt"))
+        szavak.Add(new Szo(sor));
 
-            char tema = Mainoldal.gamemode;
+    char tema = Mainoldal.gamemode;
 
-            List<Szo> filteredSzavak = szavak.Where(szo => szo.Tema == tema).ToList();
+    List<Szo> helyesSzavak = szavak.Where(szo => szo.Tema == tema).ToList();
 
-            if (filteredSzavak.Count > 0)
-            {
-                Random random = new Random();
-                int randomSzoIndex = random.Next(0, filteredSzavak.Count - 1);
+    if (helyesSzavak.Count > 0)
+    {
+        Random random = new Random();
+        int randomSzoIndex = random.Next(0, helyesSzavak.Count - 1);
 
-                Szo selectedSzo = filteredSzavak[randomSzoIndex];
-                kitalalndoszo = Convert.ToString(selectedSzo.Alak).Trim();
-                ide = selectedSzo.Alak;
-                // Create a masked version of the word using '*'
-                string maskedWord = new string('*', selectedSzo.Alak.Length);
+        Szo kitalalnivalo = helyesSzavak[randomSzoIndex];
+        kitalalndoszo = Convert.ToString(kitalalnivalo.Alak).Trim();
+        ide = kitalalnivalo.Alak;
+        string rejtettSzo = new string('*', kitalalnivalo.Alak.Length);
 
-                talalnivalo.Text = maskedWord + '\n' + selectedSzo.Alak;
+                talalnivalo.Text = rejtettSzo + '\n' + kitalalnivalo.Alak;
             }
-        }
+}
 
-        public bool BetuVizsgalat(char betu)
+
+        private void BetuVizsgalat(char betu)
         {
-            bool talalat = false;
-            for (int i = 0; i < talalnivalo.Text.Length; i++)
+            if (eddigitippek.Contains(betu))
             {
-                if (talalnivalo.Text[i] == betu)
+                MessageBox.Show($"Már próbáltad a(z) {betu} betűt!");
+                return;
+            }
+            else
+            {
+                eddigitippek.Add(betu);
+
+                if (ide.Contains(betu))
                 {
-                    talalat = true;
+                    MessageBox.Show($"A(z) [{betu}] betű a szó része!");
+                    UpdateDisplayedWord(betu);
+                }
+                else
+                {
+                    MessageBox.Show("A betű nem a szó része.");
                 }
             }
-            return talalat;
         }
+        private void UpdateDisplayedWord(char betu)
+        {
+            StringBuilder megjelenitettSzo = new StringBuilder(talalnivalo.Text);
+            for (int i = 0; i < ide.Length; i++)
+            {
+                if (ide[i] == betu)
+                {
+                    megjelenitettSzo[i] = betu;
+                }
+            }
+            talalnivalo.Text = megjelenitettSzo.ToString();
+        }
+
+
 
         private void szo_hajo(object sender, RoutedEventArgs e)
         {
@@ -264,58 +289,21 @@ namespace akasztofa
             }
         }
 
-        private bool unmasked = false;
+        //private bool nemrejtett = false;
         private void betu_hajo(object sender, RoutedEventArgs e)
         {
-            /*if (unmasked) return; // If already unmasked, do nothing
+            char betutipp = Convert.ToChar(betu_tbox.Text.FirstOrDefault());
 
-            // Get the selected word from aszo.Text
-            string maskedWord = talalnivalo.Text;
-
-            // Replace '*' with actual letters in the selected word
-            if (talalnivalo.Text.Length == ide.Alak.Length)
+            if (char.IsLetter(betutipp))
             {
-                for (int i = 0; i < selectedSzo.Alak.Length; i++)
-                {
-                    if (selectedSzo.Alak[i] != ' ')
-                    {
-                        maskedWord = maskedWord.Substring(0, i) + selectedSzo.Alak[i] + maskedWord.Substring(i + 1);
-                    }
-                }
-            }*/
+                BetuVizsgalat(betutipp);
+            }
+            else
+            {
+                MessageBox.Show("Nem talált! / Helytelen karakter.");
+            }
 
-            // Update the text box with the unmasked word
-            // talalnivalo.Text = maskedWord;
-
-
-            unmasked = true; // Set the flag to true to indicate the word is now unmasked
+            asdasd.Content = ($"Eddig tippelt betűk: {string.Join(" ", eddigitippek)}");
         }
     }
 }
-
-/*private bool unmasked = false; // Add this variable to track whether the word is unmasked
-
-private void Kitalalas_Click(object sender, RoutedEventArgs e)
-{
-    if (unmasked) return; // If already unmasked, do nothing
-
-    // Get the selected word from aszo.Text
-    string maskedWord = aszo.Text;
-
-    // Replace '*' with actual letters in the selected word
-    if (aszo.Text.Length == selectedSzo.Alak.Length)
-    {
-        for (int i = 0; i < selectedSzo.Alak.Length; i++)
-        {
-            if (selectedSzo.Alak[i] != ' ')
-            {
-                maskedWord = maskedWord.Substring(0, i) + selectedSzo.Alak[i] + maskedWord.Substring(i + 1);
-            }
-        }
-    }
-
-    // Update the text box with the unmasked word
-    aszo.Text = maskedWord;
-
-    unmasked = true; // Set the flag to true to indicate the word is now unmasked
-}*/
