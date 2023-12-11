@@ -88,8 +88,9 @@ namespace akasztofa
             //idáig
             public Jatekos Jatekos { get; private set; }
             private List<Jatekos> jatekosok = new List<Jatekos>();
-            public char Tema { get; set; }
             private List<Szo> szavak = new List<Szo>();
+            public char Tema { get; set; }
+            
             public Szo Szo { get; private set; }
             public char[] Minta { get; private set; }
             public int Kor { get; private set; }
@@ -123,13 +124,8 @@ namespace akasztofa
             }
             public void SzavakBetoltese()
             {
-                foreach (string sor in File.ReadAllLines("szavak.txt"))
-                    szavak.Add(new Szo(sor));
-                /*for (int i = 0; i < szavak.Count; i++)
-                { var ide = szavak[i+1].Alak;
-                    MessageBox.Show(Convert.ToString(ide));
-                    break;
-                }*/
+                /*foreach (string sor in File.ReadAllLines("szavak.txt"))
+                    szavak.Add(new Szo(sor));*/
                 
             }
             public void SzoValasztas()
@@ -220,6 +216,31 @@ namespace akasztofa
             {//majd lehet nem kell
                 eredmenyek.Text = "Player not found.";
             }*/
+
+            
+            List<Szo> szavak1 = new List<Szo>();
+            foreach (string sor in File.ReadAllLines("szavak.txt"))
+                    szavak1.Add(new Szo(sor));
+
+            Random random = new Random();
+            int randomSzo = random.Next(0, szavak1.Count - 1);
+
+            aszo.Text = szavak1[randomSzo].Alak;
+            
+
+        }
+
+        public bool BetuVizsgalat(char betu)
+        {
+            bool talalat = false;
+            for (int i = 0; i < aszo.Text.Length; i++)
+            {
+                if (aszo.Text[i] == betu)
+                {
+                    talalat = true;
+                }
+            }
+            return talalat;
         }
 
         private void Matek_bool_info(object sender, RoutedEventArgs e)
