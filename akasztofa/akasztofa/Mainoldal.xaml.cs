@@ -22,9 +22,7 @@ namespace akasztofa
     public partial class Mainoldal : Page
     {
         static public string nev;
-        static public bool bioszb = false;
-        static public bool infob = false;
-        static public bool matekb = false;
+        static public bool mindenb = false;
         public static char gamemode;
         public Mainoldal()
         {
@@ -36,10 +34,9 @@ namespace akasztofa
 
         private void tovabb_button(object sender, RoutedEventArgs e)
         {
-            if (gamemode != null)
+            if (/*gamemode != null*/ mindenb == true)
             {
                 nev = jatekos_nev.Text;
-                //Mainoldal mainoldal = new Mainoldal();
                 Fooldal fooldalpage = new Fooldal();
                 NavigationService.Navigate(fooldalpage);
             }
@@ -51,9 +48,7 @@ namespace akasztofa
 
         private void boiosz_button(object sender, RoutedEventArgs e)
         {
-            bioszb = true;
-            infob = false;
-            matekb = false;
+            mindenb = true;
             biosz.Background = Brushes.LightBlue;
             info.Background = Brushes.WhiteSmoke;
             matek.Background = Brushes.WhiteSmoke;
@@ -62,10 +57,8 @@ namespace akasztofa
         }
 
         private void info_button(object sender, RoutedEventArgs e)
-        {
-            bioszb = false;
-            infob = true;
-            matekb = false;
+        {;
+            mindenb = true;
             biosz.Background = Brushes.WhiteSmoke;
             info.Background = Brushes.LightBlue;
             matek.Background = Brushes.WhiteSmoke;
@@ -74,9 +67,7 @@ namespace akasztofa
 
         private void matek_button(object sender, RoutedEventArgs e)
         {
-            bioszb = false;
-            infob = false;
-            matekb = true;
+            mindenb = true;
             biosz.Background = Brushes.WhiteSmoke;
             info.Background = Brushes.WhiteSmoke;
             matek.Background = Brushes.LightBlue;
