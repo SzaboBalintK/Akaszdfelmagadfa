@@ -36,3 +36,5 @@ C:\Users\szabo.balint.kriszti\VSprojekt\laciegybarom\Akaszdfelmagadfa\akasztofa\
 C:\Users\szabo.balint.kriszti\VSprojekt\laciegybarom\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa.csproj.CoreCompileInputs.cache
 C:\Users\szabo.balint.kriszti\VSprojekt\laciegybarom\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa.exe
 C:\Users\szabo.balint.kriszti\VSprojekt\laciegybarom\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa.pdb
+C:\Users\fater.laszlo_csany-z\Desktop\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\Mainoldal.g.cs
+C:\Users\fater.laszlo_csany-z\Desktop\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\Mainoldal.baml

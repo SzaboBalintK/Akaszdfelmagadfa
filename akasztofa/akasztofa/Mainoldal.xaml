@@ -1,0 +1,24 @@
+﻿<Page x:Class="akasztofa.Mainoldal"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:akasztofa"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Mainoldal" Background="Orange">
+
+    <Grid>
+        <TextBox x:Name="jatekos_nev" HorizontalAlignment="Left" Margin="155,144,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="471" Height="23"/>
+        <Label x:Name="program_label" Content="Akasztófa" HorizontalAlignment="Left" Margin="339,26,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="jatekos_neve_label" Content="Jatekos neve" HorizontalAlignment="Left" Margin="339,79,0,0" VerticalAlignment="Top"/>
+        <Label Content="Témakör Választás" HorizontalAlignment="Left" Margin="328,0,0,0" VerticalAlignment="Center"/>
+        <Button x:Name="biosz" Content="Biológia" HorizontalAlignment="Left" Margin="155,266,0,0" VerticalAlignment="Top" Click="boiosz_button"/>
+        <Button x:Name="tovabb" Content="Tovább" HorizontalAlignment="Left" Margin="692,384,0,0" VerticalAlignment="Top" Click="tovabb_button"/>
+        <Button x:Name="info" Content="Informatika" HorizontalAlignment="Left" Margin="378,276,0,0" VerticalAlignment="Top" Click="info_button"/>
+        <Button x:Name="matek" Content="Matematika" HorizontalAlignment="Left" Margin="562,276,0,0" VerticalAlignment="Top" Click="matek_button"/>
+        <Label x:Name="hibauzenet" Content="Ide lesz majd hibauzenet, ha van" HorizontalAlignment="Left" Margin="339,373,0,0" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Page>
