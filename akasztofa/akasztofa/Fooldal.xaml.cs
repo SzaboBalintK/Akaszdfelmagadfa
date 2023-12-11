@@ -32,6 +32,7 @@ namespace akasztofa
         static public string kitalalndoszo;
         static public string ide;
         public List<char> eddigitippek = new List<char>();
+        public static int tippekszama;
 
 
         class Szo
@@ -252,10 +253,12 @@ namespace akasztofa
                 {
                     MessageBox.Show($"A(z) [{betu}] betű a szó része!");
                     UpdateDisplayedWord(betu);
+                    tippekszama++;
                 }
                 else
                 {
                     MessageBox.Show("A betű nem a szó része.");
+                    tippekszama++;
                 }
             }
         }
