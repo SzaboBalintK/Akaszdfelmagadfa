@@ -285,6 +285,7 @@ namespace akasztofa
             // Update the text box with the unmasked word
            // talalnivalo.Text = maskedWord;
 
+
             unmasked = true; // Set the flag to true to indicate the word is now unmasked
         }
     }
