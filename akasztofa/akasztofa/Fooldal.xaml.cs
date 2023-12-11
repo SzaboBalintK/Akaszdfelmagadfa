@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -284,11 +285,17 @@ namespace akasztofa
             {
                 szavastipp_tbox.Text = "Kitaláltad a szót!";
                 szavastipp_tbox.IsEnabled = false;
+                szo_tipp.IsEnabled = false;
+                betu_tbox.IsEnabled = false;
+                betu_tipp.IsEnabled = false;
             }
             else
             {
                 szavastipp_tbox.Text = "Ez sajnos nem sikerült!";
                 szavastipp_tbox.IsEnabled = false;
+                szo_tipp.IsEnabled = false;
+                betu_tbox.IsEnabled = false;
+                betu_tipp.IsEnabled = false;
             }
         }
 
