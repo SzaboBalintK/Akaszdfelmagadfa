@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,9 +25,9 @@ namespace akasztofa
     {
         //static public string jatekosnevekod;
         //static public bool jatekosnevekodvan = false;
-        static public bool matekbool = false;
-        static public bool biologiabool = false;
-        static public bool informatikabool = false;
+        //static public bool matekbool = false;
+        //static public bool biologiabool = false;
+        //static public bool informatikabool = false;
 
         class Szo
         {//itt jonnek be a szavak
@@ -83,9 +84,8 @@ namespace akasztofa
             }
         }
         class Jatek
-        {// ez is uj
-            public Szo SelectedWord => Szo;
-            //idáig
+        {
+
             public Jatekos Jatekos { get; private set; }
             private List<Jatekos> jatekosok = new List<Jatekos>();
             private List<Szo> szavak = new List<Szo>();
@@ -178,22 +178,27 @@ namespace akasztofa
             InitializeComponent();
             Jatek jatek = new Jatek();
             eredmenyek.Text = "ide jonnek majd az eredmenyek";
-            //Jatekos jatekos = new Jatekos(jatekos_nev.Text);
-            //eredmenyek.Text = jatekos.Eredmenyek().Last().ToString();
+            string mainoldalinev = Mainoldal.nev;
+            jatek.JatekosBelepese(mainoldalinev);
+            Jatekos jatekos = jatek.Jatekos;
+            if (jatekos != null)
+           {
+               eredmenyek.Text = string.Join(Environment.NewLine, jatekos.Eredmenyek().Take(3));
+           }
+           else
+           {
+               eredmenyek.Text = "Player not found.";
+           }
+
+            //jatek.JatekosokMentese();
+
         }
 
         private void Nev_ok(object sender, RoutedEventArgs e)
         {
             //jatekosnevekod = jatekos_nev.Text;
             //jatekosnevekodvan = true;
-            Jatek jatek = new Jatek();
-            jatek.JatekosBelepese(jatekos_nev.Text);
-
-            //jatekosnevekod = jatekos_nev.Text;
-            //jatekosnevekodvan = true;
-   
-            // Call JatekosokMentese to save the player's progress
-            jatek.JatekosokMentese();
+           
 
         }
 
@@ -201,12 +206,11 @@ namespace akasztofa
         private void jatekos_betolt(object sender, RoutedEventArgs e)
         {
             Jatek jatek = new Jatek();
-            jatek.JatekosBelepese(jatekos_nev.Text.ToString());
+            //jatek.JatekosBelepese(jatekos_nev.Text.ToString());
             //ez itt a tesztelés helye
 
-            Szo selectedWord = jatek.SelectedWord;
-            MessageBox.Show(Convert.ToString(selectedWord));
-            //MessageBox.Show(Convert.ToString(jatek.SzoValasztas()));
+
+            //MessageBox.Show(Convert.ToString(selectedWord));
             Jatekos jatekos = jatek.Jatekos;
             /*if (jatekos != null)
             {
@@ -243,34 +247,5 @@ namespace akasztofa
             return talalat;
         }
 
-        private void Matek_bool_info(object sender, RoutedEventArgs e)
-        {
-
-                matekbool = true;
-                biologiabool = false;
-                informatikabool = false;
-                //biologiajelol.IsChecked = false;
-                //informatikajelol.IsChecked = false;
-
-        }
-
-        private void biologia_bool_info(object sender, RoutedEventArgs e)
-        {
-                matekbool = false;
-                biologiabool = true;
-                informatikabool = false;
-                //biologiajelol.IsChecked = false;
-                //informatikajelol.IsChecked = false;
-        }
-
-
-        private void Informatika_bool_info(object sender, RoutedEventArgs e)
-        {
-            matekbool = false;
-            biologiabool = false;
-            informatikabool = true;
-            //biologiajelol.IsChecked = false;
-            //informatikajelol.IsChecked = false;
-        }
     }
 }

@@ -23,8 +23,9 @@ namespace akasztofa
         public MainWindow()
         {
             InitializeComponent();
-            Fooldal fooldalpage = new Fooldal();
-            sajatframe.NavigationService.Navigate(fooldalpage);
+            Mainoldal mainoldal = new Mainoldal();
+            //Fooldal fooldalpage = new Fooldal();
+            sajatframe.NavigationService.Navigate(mainoldal);
         }
     }
 }
