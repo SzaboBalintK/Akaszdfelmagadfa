@@ -9,7 +9,7 @@
       Title="Mainoldal" Background="Orange">
 
     <Grid>
-        <TextBox x:Name="jatekos_nev" HorizontalAlignment="Left" Margin="155,144,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="471" Height="23"/>
+        <TextBox x:Name="jatekos_nev" HorizontalAlignment="Left" Margin="155,144,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="471" Height="23"/>
         <Label x:Name="program_label" Content="Akasztófa" HorizontalAlignment="Left" Margin="339,26,0,0" VerticalAlignment="Top"/>
         <Label x:Name="jatekos_neve_label" Content="Jatekos neve" HorizontalAlignment="Left" Margin="339,79,0,0" VerticalAlignment="Top"/>
         <Label Content="Témakör Választás" HorizontalAlignment="Left" Margin="328,0,0,0" VerticalAlignment="Center"/>

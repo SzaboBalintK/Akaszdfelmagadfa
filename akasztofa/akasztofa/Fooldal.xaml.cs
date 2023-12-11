@@ -94,13 +94,13 @@ namespace akasztofa
             private List<Jatekos> jatekosok = new List<Jatekos>();
             private List<Szo> szavak = new List<Szo>();
             public char Tema { get; set; }
-            
+
             public Szo Szo { get; private set; }
             public char[] Minta { get; private set; }
             public int Kor { get; private set; }
             public int HibaSzam { get; set; }
             public Jatek()
-            {   
+            {
                 JatekosokBetoltese();
                 SzavakBetoltese();
                 Kor = 1;
@@ -130,7 +130,7 @@ namespace akasztofa
             {
                 /*foreach (string sor in File.ReadAllLines("szavak.txt"))
                     szavak.Add(new Szo(sor));*/
-                
+
             }
             public void SzoValasztas()
             {
@@ -187,13 +187,13 @@ namespace akasztofa
             jatek.JatekosBelepese(mainoldalinev);
             Jatekos jatekos = jatek.Jatekos;
             if (jatekos != null)
-           {
-               eredmenyek.Text = string.Join(Environment.NewLine, jatekos.Eredmenyek().Take(3));
-           }
-           else
-           {
-               eredmenyek.Text = "Player not found.";
-           }
+            {
+                eredmenyek.Text = string.Join(Environment.NewLine, jatekos.Eredmenyek().Take(3));
+            }
+            else
+            {
+                eredmenyek.Text = "Player not found.";
+            }
 
             //jatek.JatekosokMentese();
 
@@ -203,7 +203,7 @@ namespace akasztofa
         {
             //jatekosnevekod = jatekos_nev.Text;
             //jatekosnevekodvan = true;
-           
+
 
         }
 
@@ -254,11 +254,13 @@ namespace akasztofa
             string szova = szavastipp_tbox.Text.Trim();
             if (szova == kitalalndoszo)
             {
-                szavastipp_tbox.Text = "sikeres";
+                szavastipp_tbox.Text = "Kitaláltad a szót!";
+                szavastipp_tbox.IsEnabled = false;
             }
             else
             {
-                szavastipp_tbox.Text = "vesztes vagy";
+                szavastipp_tbox.Text = "Ez sajnos nem sikerült!";
+                szavastipp_tbox.IsEnabled = false;
             }
         }
 
@@ -283,7 +285,7 @@ namespace akasztofa
             }*/
 
             // Update the text box with the unmasked word
-           // talalnivalo.Text = maskedWord;
+            // talalnivalo.Text = maskedWord;
 
 
             unmasked = true; // Set the flag to true to indicate the word is now unmasked
