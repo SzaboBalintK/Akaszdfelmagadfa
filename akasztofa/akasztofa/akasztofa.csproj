@@ -118,5 +118,19 @@
   <ItemGroup>
     <Resource Include="elso_hiba.png" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="kepek\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="kepek\2.png" />
+    <Resource Include="kepek\3.png" />
+    <Resource Include="kepek\4.png" />
+    <Resource Include="kepek\5.png" />
+    <Resource Include="kepek\6.png" />
+    <Resource Include="kepek\7.png" />
+    <Resource Include="kepek\8.png" />
+    <Resource Include="kepek\9.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

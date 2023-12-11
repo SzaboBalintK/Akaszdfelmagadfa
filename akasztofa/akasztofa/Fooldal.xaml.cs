@@ -314,6 +314,22 @@ namespace akasztofa
             }
 
             asdasd.Content = ($"Eddig tippelt betűk: {string.Join(" ", eddigitippek)}");
+       
+            switch (tippekszama)
+            {
+                case 1:
+                    ImageSource imageSource = new BitmapImage(new Uri("/kepek/1.png", UriKind.RelativeOrAbsolute));
+                    mrincredible.Source = imageSource;
+                    break;
+
+
+            }
+        
+        
+        
         }
+
+
+
     }
 }
