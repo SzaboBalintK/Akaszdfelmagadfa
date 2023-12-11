@@ -230,7 +230,7 @@ namespace akasztofa
         int randomSzoIndex = random.Next(0, helyesSzavak.Count - 1);
 
         Szo kitalalnivalo = helyesSzavak[randomSzoIndex];
-        kitalalndoszo = Convert.ToString(kitalalnivalo.Alak).Trim();
+        kitalalndoszo = Convert.ToString(kitalalnivalo.Alak);
         ide = kitalalnivalo.Alak;
         string rejtettSzo = new string('*', kitalalnivalo.Alak.Length);
 
@@ -280,7 +280,7 @@ namespace akasztofa
 
         private void szo_hajo(object sender, RoutedEventArgs e)
         {
-            string szova = szavastipp_tbox.Text.Trim();
+            string szova = szavastipp_tbox.Text;
             if (szova == kitalalndoszo)
             {
                 szavastipp_tbox.Text = "Kitaláltad a szót!";
