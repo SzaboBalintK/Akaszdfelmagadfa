@@ -18,12 +18,14 @@ namespace akasztofa
     /// <summary>
     /// Interaction logic for Mainoldal.xaml
     /// </summary>
+    
     public partial class Mainoldal : Page
     {
         static public string nev;
         static public bool bioszb = false;
         static public bool infob = false;
         static public bool matekb = false;
+        public static char gamemode;
         public Mainoldal()
         {
             InitializeComponent();
@@ -34,10 +36,17 @@ namespace akasztofa
 
         private void tovabb_button(object sender, RoutedEventArgs e)
         {
-            nev = jatekos_nev.Text;
-            //Mainoldal mainoldal = new Mainoldal();
-            Fooldal fooldalpage = new Fooldal();
-            NavigationService.Navigate(fooldalpage);
+            if (gamemode != null)
+            {
+                nev = jatekos_nev.Text;
+                //Mainoldal mainoldal = new Mainoldal();
+                Fooldal fooldalpage = new Fooldal();
+                NavigationService.Navigate(fooldalpage);
+            }
+            else {
+                hibauzenet.Content = "Kérem válasszon egy témát!";
+                 }
+            
         }
 
         private void boiosz_button(object sender, RoutedEventArgs e)
@@ -48,6 +57,7 @@ namespace akasztofa
             biosz.Background = Brushes.LightBlue;
             info.Background = Brushes.WhiteSmoke;
             matek.Background = Brushes.WhiteSmoke;
+            gamemode = 'b';
 
         }
 
@@ -59,6 +69,7 @@ namespace akasztofa
             biosz.Background = Brushes.WhiteSmoke;
             info.Background = Brushes.LightBlue;
             matek.Background = Brushes.WhiteSmoke;
+            gamemode = 'i';
         }
 
         private void matek_button(object sender, RoutedEventArgs e)
@@ -69,6 +80,7 @@ namespace akasztofa
             biosz.Background = Brushes.WhiteSmoke;
             info.Background = Brushes.WhiteSmoke;
             matek.Background = Brushes.LightBlue;
+            gamemode = 'm';
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -96,7 +97,7 @@ namespace akasztofa
             public int Kor { get; private set; }
             public int HibaSzam { get; set; }
             public Jatek()
-            {
+            {   
                 JatekosokBetoltese();
                 SzavakBetoltese();
                 Kor = 1;
@@ -176,6 +177,7 @@ namespace akasztofa
         public Fooldal()
         {
             InitializeComponent();
+            jatekos_betolt();
             Jatek jatek = new Jatek();
             eredmenyek.Text = "ide jonnek majd az eredmenyek";
             string mainoldalinev = Mainoldal.nev;
@@ -203,43 +205,39 @@ namespace akasztofa
         }
 
 
-        private void jatekos_betolt(object sender, RoutedEventArgs e)
+        private void jatekos_betolt()
         {
             Jatek jatek = new Jatek();
-            //jatek.JatekosBelepese(jatekos_nev.Text.ToString());
-            //ez itt a tesztelés helye
-
-
-            //MessageBox.Show(Convert.ToString(selectedWord));
             Jatekos jatekos = jatek.Jatekos;
-            /*if (jatekos != null)
-            {
-                eredmenyek.Text = string.Join(Environment.NewLine, jatekos.Eredmenyek().Take(3));
-            }
-            else
-            {//majd lehet nem kell
-                eredmenyek.Text = "Player not found.";
-            }*/
 
-            
-            List<Szo> szavak1 = new List<Szo>();
+            List<Szo> szavak = new List<Szo>();
             foreach (string sor in File.ReadAllLines("szavak.txt"))
-                    szavak1.Add(new Szo(sor));
+                szavak.Add(new Szo(sor));
 
-            Random random = new Random();
-            int randomSzo = random.Next(0, szavak1.Count - 1);
+            char tema = Mainoldal.gamemode;
 
-            aszo.Text = szavak1[randomSzo].Alak;
-            
+            List<Szo> filteredSzavak = szavak.Where(szo => szo.Tema == tema).ToList();
 
+            if (filteredSzavak.Count > 0)
+            {
+                Random random = new Random();
+                int randomSzoIndex = random.Next(0, filteredSzavak.Count - 1);
+
+                Szo selectedSzo = filteredSzavak[randomSzoIndex];
+
+                // Create a masked version of the word using '*'
+                string maskedWord = new string('*', selectedSzo.Alak.Length);
+
+                talalnivalo.Text = maskedWord + '\n' + selectedSzo.Alak;
+            }
         }
 
         public bool BetuVizsgalat(char betu)
         {
             bool talalat = false;
-            for (int i = 0; i < aszo.Text.Length; i++)
+            for (int i = 0; i < talalnivalo.Text.Length; i++)
             {
-                if (aszo.Text[i] == betu)
+                if (talalnivalo.Text[i] == betu)
                 {
                     talalat = true;
                 }
@@ -249,3 +247,30 @@ namespace akasztofa
 
     }
 }
+
+/*private bool unmasked = false; // Add this variable to track whether the word is unmasked
+
+private void Kitalalas_Click(object sender, RoutedEventArgs e)
+{
+    if (unmasked) return; // If already unmasked, do nothing
+
+    // Get the selected word from aszo.Text
+    string maskedWord = aszo.Text;
+
+    // Replace '*' with actual letters in the selected word
+    if (aszo.Text.Length == selectedSzo.Alak.Length)
+    {
+        for (int i = 0; i < selectedSzo.Alak.Length; i++)
+        {
+            if (selectedSzo.Alak[i] != ' ')
+            {
+                maskedWord = maskedWord.Substring(0, i) + selectedSzo.Alak[i] + maskedWord.Substring(i + 1);
+            }
+        }
+    }
+
+    // Update the text box with the unmasked word
+    aszo.Text = maskedWord;
+
+    unmasked = true; // Set the flag to true to indicate the word is now unmasked
+}*/
