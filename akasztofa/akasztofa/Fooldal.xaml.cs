@@ -29,6 +29,9 @@ namespace akasztofa
         //static public bool matekbool = false;
         //static public bool biologiabool = false;
         //static public bool informatikabool = false;
+        static public string kitalalndoszo;
+        static public string ide;
+
 
         class Szo
         {//itt jonnek be a szavak
@@ -224,7 +227,8 @@ namespace akasztofa
                 int randomSzoIndex = random.Next(0, filteredSzavak.Count - 1);
 
                 Szo selectedSzo = filteredSzavak[randomSzoIndex];
-
+                kitalalndoszo = Convert.ToString(selectedSzo.Alak).Trim();
+                ide = selectedSzo.Alak;
                 // Create a masked version of the word using '*'
                 string maskedWord = new string('*', selectedSzo.Alak.Length);
 
@@ -245,6 +249,44 @@ namespace akasztofa
             return talalat;
         }
 
+        private void szo_hajo(object sender, RoutedEventArgs e)
+        {
+            string szova = szavastipp_tbox.Text.Trim();
+            if (szova == kitalalndoszo)
+            {
+                szavastipp_tbox.Text = "sikeres";
+            }
+            else
+            {
+                szavastipp_tbox.Text = "vesztes vagy";
+            }
+        }
+
+        private bool unmasked = false;
+        private void betu_hajo(object sender, RoutedEventArgs e)
+        {
+            /*if (unmasked) return; // If already unmasked, do nothing
+
+            // Get the selected word from aszo.Text
+            string maskedWord = talalnivalo.Text;
+
+            // Replace '*' with actual letters in the selected word
+            if (talalnivalo.Text.Length == ide.Alak.Length)
+            {
+                for (int i = 0; i < selectedSzo.Alak.Length; i++)
+                {
+                    if (selectedSzo.Alak[i] != ' ')
+                    {
+                        maskedWord = maskedWord.Substring(0, i) + selectedSzo.Alak[i] + maskedWord.Substring(i + 1);
+                    }
+                }
+            }*/
+
+            // Update the text box with the unmasked word
+           // talalnivalo.Text = maskedWord;
+
+            unmasked = true; // Set the flag to true to indicate the word is now unmasked
+        }
     }
 }
 
