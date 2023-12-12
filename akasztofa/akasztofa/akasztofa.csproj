@@ -116,9 +116,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="elso_hiba.png" />
+    <Resource Include="1.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="kepek\1.png" />
   </ItemGroup>

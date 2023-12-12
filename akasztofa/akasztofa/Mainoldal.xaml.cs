@@ -30,19 +30,23 @@ namespace akasztofa
             biosz.Background = Brushes.WhiteSmoke;
             info.Background = Brushes.WhiteSmoke;
             matek.Background = Brushes.WhiteSmoke;
+            hibauzenet.Visibility = Visibility.Hidden;
         }
 
         private void tovabb_button(object sender, RoutedEventArgs e)
         {
             if (/*gamemode != null*/ mindenb == true)
             {
+                hibauzenet.Visibility = Visibility.Hidden;
                 nev = jatekos_nev.Text;
                 Fooldal fooldalpage = new Fooldal();
                 NavigationService.Navigate(fooldalpage);
             }
-            else {
-                hibauzenet.Content = "Kérem válasszon egy témát!";
-                 }
+            else 
+            {
+                hibauzenet.Visibility = Visibility.Visible;
+                hibauzenet.Content = "Kérem válasszon egy témát!"; 
+            }
             
         }
 

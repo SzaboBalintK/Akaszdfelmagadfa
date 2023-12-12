@@ -8,13 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("kepek/2.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("kepek/3.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("kepek/4.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("kepek/5.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("kepek/6.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("kepek/7.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("kepek/8.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("kepek/9.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("1.png")]
 
 

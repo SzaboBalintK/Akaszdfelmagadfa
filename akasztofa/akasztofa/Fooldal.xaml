@@ -27,13 +27,13 @@
         <Label Grid.Column="1" Grid.Row="2" Content="Betű tippelése" HorizontalAlignment="Center" Height="25" VerticalAlignment="Top"/>
         <TextBox x:Name="betu_tbox" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Width="120" Height="100"/>
         <Button x:Name="betu_tipp" Grid.Column="1" Grid.Row="2" Content="Tipp" Height="25" VerticalAlignment="Bottom" Margin="216,0,0,0" Click="betu_hajo"/>
-        <Image x:Name="mrincredible" Grid.Column="2" Grid.Row="2" Height="100" Width="100" Source="/elso_hiba.png"/>
+        <Image x:Name="mrincredible" Grid.Column="2" Grid.Row="2" Height="100" Width="100" Source="/1.png"/>
         <Label Grid.Column="0" Grid.Row="2" Content="A szó kitalálása" HorizontalAlignment="Center" Height="25" VerticalAlignment="Top"/>
         <TextBox x:Name="szavastipp_tbox" Grid.Column="0" Grid.Row="2" TextWrapping="Wrap" Width="120" Height="100" IsEnabled="True"/>
         <Button x:Name="szo_tipp" Grid.Column="0" Grid.Row="2" Content="Tipp" Width="50" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="szo_hajo"/>
         <Label Grid.Column="2" Grid.Row="1" Content="Legutóbbi Eredmény:" HorizontalAlignment="Center" Height="25" VerticalAlignment="Top"/>
         <TextBox x:Name="eredmenyek" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text=" " Width="240" Height="100" IsEnabled="False"/>
-        <Label x:Name="asdasd" Content="Eddig tippelt betűk:" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
+        <Label x:Name="asdasd" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
 
     </Grid>
 </Page>
