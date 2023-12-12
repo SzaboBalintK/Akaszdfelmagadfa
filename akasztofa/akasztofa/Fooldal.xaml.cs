@@ -321,7 +321,38 @@ namespace akasztofa
                     ImageSource imageSource = new BitmapImage(new Uri("/kepek/1.png", UriKind.RelativeOrAbsolute));
                     mrincredible.Source = imageSource;
                     break;
-
+                case 2:
+                    ImageSource imageSource2 = new BitmapImage(new Uri("/kepek/2.png", UriKind.RelativeOrAbsolute));
+                    mrincredible.Source = imageSource2;
+                    break;
+                case 3:
+                    ImageSource imageSource3 = new BitmapImage(new Uri("/kepek/3.png", UriKind.RelativeOrAbsolute));
+                    mrincredible.Source = imageSource3;
+                    break;
+                case 4:
+                    ImageSource imageSource4 = new BitmapImage(new Uri("/kepek/4.png", UriKind.RelativeOrAbsolute));
+                    mrincredible.Source = imageSource4;
+                    break;
+                case 5:
+                    ImageSource imageSource5 = new BitmapImage(new Uri("/kepek/5.png", UriKind.RelativeOrAbsolute));
+                    mrincredible.Source = imageSource5;
+                    break;
+                case 6:
+                    ImageSource imageSource6 = new BitmapImage(new Uri("/kepek/6.png", UriKind.RelativeOrAbsolute));
+                    mrincredible.Source = imageSource6;
+                    break;
+                case 7:
+                    ImageSource imageSource7 = new BitmapImage(new Uri("/kepek/7.png", UriKind.RelativeOrAbsolute));
+                    mrincredible.Source = imageSource7;
+                    break;
+                case 8:
+                    ImageSource imageSource8 = new BitmapImage(new Uri("/kepek/8.png", UriKind.RelativeOrAbsolute));
+                    mrincredible.Source = imageSource8;
+                    break;
+                case 9:
+                    ImageSource imageSource9 = new BitmapImage(new Uri("/kepek/9.png", UriKind.RelativeOrAbsolute));
+                    mrincredible.Source = imageSource9;
+                    break;
 
             }
         
