@@ -40,6 +40,11 @@ namespace akasztofa
         public static int nyertm;
         public static int nyerti;
         public static int nyertk;
+        public static int vesztettb;
+        public static int vesztettm;
+        public static int vesztetti;
+        public static int vesztettk;
+        
 
 
         class Szo
@@ -56,43 +61,43 @@ namespace akasztofa
         class Jatekos
         {
             public string Nev { get; set; }
-            public int BNy { get; set; }
-            public int BV { get; set; }
-            public int MNy { get; set; }
-            public int MV { get; set; }
-            public int INy { get; set; }
-            public int IV { get; set; }
+            public int nyertb { get; set; }
+            public int vesztettb { get; set; }
+            public int nyertm { get; set; }
+            public int vesztettm { get; set; }
+            public int nyerti { get; set; }
+            public int vesztetti { get; set; }
             public Jatekos(string nev)
             {//melyik témakörben nyert, nincs talalat
                 Nev = nev;
-                BNy = 0;
-                BV = 0;
-                MNy = 0;
-                MV = 0;
-                INy = 0;
-                IV = 0;
+                nyertb = 0;
+                vesztettb = 0;
+                nyertm = 0;
+                vesztettm = 0;
+                nyerti = 0;
+                vesztetti = 0;
             }
             public Jatekos(string sor, bool torol)
             {
                 string[] adatok = sor.Split(';');
                 Nev = adatok[0];
-                BNy = Convert.ToInt32(adatok[1]);
-                BV = Convert.ToInt32(adatok[2]);
-                MNy = Convert.ToInt32(adatok[3]);
-                MV = Convert.ToInt32(adatok[4]);
-                INy = Convert.ToInt32(adatok[5]);
-                IV = Convert.ToInt32(adatok[6]);
+                nyertb = Convert.ToInt32(adatok[1]);
+                vesztettb = Convert.ToInt32(adatok[2]);
+                nyertm = Convert.ToInt32(adatok[3]);
+                vesztettm = Convert.ToInt32(adatok[4]);
+                nyerti = Convert.ToInt32(adatok[5]);
+                vesztetti = Convert.ToInt32(adatok[6]);
             }
             public string Sorra()
             {
-                return $"{Nev};{BNy};{BV};{MNy};{MV};{INy};{IV}";
+                return $"{Nev};{nyertb};{vesztettb};{nyertm};{vesztettm};{nyerti};{vesztetti}";
             }
             public string[] Eredmenyek()
             {
                 string[] eredmenyek = new string[3];
-                eredmenyek[0] = $"Biológia témakörben nyert: {BNy}, vesztett {BV} játékot.";
-                eredmenyek[1] = $"Matematika témakörben nyert: {MNy}, vesztett {MV} játékot.";
-                eredmenyek[2] = $"Informatika témakörben nyert: {INy}, vesztett {IV} játékot.";
+                eredmenyek[0] = $"Biológia témakörben nyert: {nyertb}, vesztett {vesztettb} játékot.";
+                eredmenyek[1] = $"Matematika témakörben nyert: {nyertm}, vesztett {vesztettm} játékot.";
+                eredmenyek[2] = $"Informatika témakörben nyert: {nyerti}, vesztett {vesztetti} játékot.";
                 return eredmenyek;
             }
         }
@@ -175,9 +180,9 @@ namespace akasztofa
             {
                 bool nyert = megfejtes == Szo.Alak;
                 int x = 0;
-                if (Tema == 'b') x = nyert ? Jatekos.BNy++ : Jatekos.BV++;
-                else if (Tema == 'm') x = nyert ? Jatekos.MNy++ : Jatekos.MV++;
-                else x = nyert ? Jatekos.INy++ : Jatekos.IV++;
+                if (Tema == 'b') x = nyert ? Jatekos.nyertb++ : Jatekos.vesztettb++;
+                else if (Tema == 'm') x = nyert ? Jatekos.nyertm++ : Jatekos.vesztettm++;
+                else x = nyert ? Jatekos.nyerti++ : Jatekos.vesztetti++;
                 return nyert;
             }
             public void JatekosokMentese()
@@ -332,16 +337,32 @@ namespace akasztofa
                     case 'k':
                         nyertk++;
                         break;
-
                 }
             }
             else
             {
-                szavastipp_tbox.Text = "Ez sajnos nem sikerült!";
+                //szavastipp_tbox.Text = "Ez sajnos nem sikerült!";
+                MessageBox.Show("Ez sajnos nem sikerült!");
                 szavastipp_tbox.IsEnabled = false;
                 szo_tipp.IsEnabled = false;
                 betu_tbox.IsEnabled = false;
                 betu_tipp.IsEnabled = false;
+
+                switch (tema)
+                {
+                    case 'm':
+                        vesztettm++;
+                        break;
+                    case 'i':
+                        vesztetti++;
+                        break;
+                    case 'b':
+                        vesztettb++;
+                        break;
+                    case 'k':
+                        vesztettk++;
+                        break;
+                }
             }
         }
 
