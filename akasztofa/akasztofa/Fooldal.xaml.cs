@@ -44,8 +44,7 @@ namespace akasztofa
         public static int vesztettm;
         public static int vesztetti;
         public static int vesztettk;
-        
-
+        private IEnumerable<Jatekos> jatekosok;
 
         class Szo
         {//itt jonnek be a szavak
@@ -88,9 +87,10 @@ namespace akasztofa
                 nyerti = Convert.ToInt32(adatok[5]);
                 vesztetti = Convert.ToInt32(adatok[6]);
             }
+
             public string Sorra()
             {
-                return $"{Nev};{nyertb};{vesztettb};{nyertm};{vesztettm};{nyerti};{vesztetti}";
+                return $"{Mainoldal.nev};{nyertb};{vesztettb};{nyertm};{vesztettm};{nyerti};{vesztetti}";
             }
             public string[] Eredmenyek()
             {
@@ -100,13 +100,14 @@ namespace akasztofa
                 eredmenyek[2] = $"Informatika témakörben nyert: {nyerti}, vesztett {vesztetti} játékot.";
                 return eredmenyek;
             }
+
         }
         class Jatek
         {
 
             public Jatekos Jatekos { get; private set; }
-            private List<Jatekos> jatekosok = new List<Jatekos>();
             private List<Szo> szavak = new List<Szo>();
+            public List<Jatekos> jatekosok = new List<Jatekos>();
             public char Tema { get; set; }
 
             public Szo Szo { get; private set; }
@@ -176,21 +177,8 @@ namespace akasztofa
                 }
                 return talalat;
             }
-            public bool Eredmeny(string megfejtes)
-            {
-                bool nyert = megfejtes == Szo.Alak;
-                int x = 0;
-                if (Tema == 'b') x = nyert ? Jatekos.nyertb++ : Jatekos.vesztettb++;
-                else if (Tema == 'm') x = nyert ? Jatekos.nyertm++ : Jatekos.vesztettm++;
-                else x = nyert ? Jatekos.nyerti++ : Jatekos.vesztetti++;
-                return nyert;
-            }
-            public void JatekosokMentese()
-            {
-                List<string> sorok = new List<string>();
-                foreach (Jatekos jatekos in jatekosok) sorok.Add(jatekos.Sorra());
-                File.WriteAllLines("jatekosok.txt", sorok);
-            }
+            
+
         }
         public Fooldal()
         {
@@ -321,7 +309,7 @@ namespace akasztofa
                 szo_tipp.IsEnabled = false;
                 betu_tbox.IsEnabled = false;
                 betu_tipp.IsEnabled = false;
-
+                JatekosokMentese();
 
                 switch (tema)
                 {
@@ -347,6 +335,7 @@ namespace akasztofa
                 szo_tipp.IsEnabled = false;
                 betu_tbox.IsEnabled = false;
                 betu_tipp.IsEnabled = false;
+                JatekosokMentese();
 
                 switch (tema)
                 {
@@ -418,5 +407,22 @@ namespace akasztofa
                     break;
             }
         }
+        public void JatekosokMentese()
+        {
+            List<string> sorok = new List<string>();
+            foreach (Jatekos jatekos in jatekosok) sorok.Add(jatekos.Sorra());
+            File.WriteAllLines("jatekosok.txt", sorok);
+        }
+
+        public string[] Eredmenyek()
+        {
+            string[] eredmenyek = new string[3];
+            eredmenyek[0] = $"Biológia témakörben nyert: {nyertb}, vesztett {vesztettb} játékot.";
+            eredmenyek[1] = $"Matematika témakörben nyert: {nyertm}, vesztett {vesztettm} játékot.";
+            eredmenyek[2] = $"Informatika témakörben nyert: {nyerti}, vesztett {vesztetti} játékot.";
+            return eredmenyek;
+        }
+
+
     }
 }
