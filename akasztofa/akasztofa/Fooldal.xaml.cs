@@ -36,6 +36,10 @@ namespace akasztofa
         public static int tippekszama;
         public static int maxhiba = 8;
         public static int jelenlegihiba = 0;
+        public static int nyertb;
+        public static int nyertm;
+        public static int nyerti;
+        public static int nyertk;
 
 
         class Szo
@@ -152,6 +156,7 @@ namespace akasztofa
                     return true;
                 }
                 else return false;
+               
             }
             public bool BetuVizsgalat(char betu)
             {
@@ -209,36 +214,57 @@ namespace akasztofa
 
 
         private void jatekos_betolt()
-{
-    Jatek jatek = new Jatek();
-    Jatekos jatekos = jatek.Jatekos;
+        {
+            Jatek jatek = new Jatek();
+            Jatekos jatekos = jatek.Jatekos;
 
-    List<Szo> szavak = new List<Szo>();
-    foreach (string sor in File.ReadAllLines("szavak.txt"))
-        szavak.Add(new Szo(sor));
+            List<Szo> szavak = new List<Szo>();
+            foreach (string sor in File.ReadAllLines("szavak.txt"))
+                szavak.Add(new Szo(sor));
 
-    char tema = Mainoldal.gamemode;
+            char tema = Mainoldal.gamemode;
 
-    List<Szo> helyesSzavak = szavak.Where(szo => szo.Tema == tema).ToList();
+            List<Szo> helyesSzavak = szavak
+                .Where(szo => szo.Tema == tema)
+                .ToList();
 
-    if (helyesSzavak.Count > 0)
-    {
-        Random random = new Random();
-        int randomSzoIndex = random.Next(0, helyesSzavak.Count - 1);
+            if (helyesSzavak.Count > 0)
+            {
+                Random random = new Random();
+                int randomSzoIndex = random.Next(0, helyesSzavak.Count - 1);
 
-        Szo kitalalnivalo = helyesSzavak[randomSzoIndex];
-        kitalalndoszo = Convert.ToString(kitalalnivalo.Alak);
-        ide = kitalalnivalo.Alak;
-        string rejtettSzo = new string('*', kitalalnivalo.Alak.Length);
+                Szo kitalalnivalo = helyesSzavak[randomSzoIndex];
+                kitalalndoszo = kitalalnivalo.Alak; // No need to convert to string
+                ide = kitalalnivalo.Alak;
+                string rejtettSzo = Nincsures(kitalalnivalo.Alak);
 
                 talalnivalo.Text = rejtettSzo + '\n' + kitalalnivalo.Alak;
             }
-}
+        }
+
+        private string Nincsures(string word)
+        {
+            StringBuilder rejtettszo = new StringBuilder();
+
+            foreach (char character in word)
+            {
+                if (char.IsWhiteSpace(character))
+                {
+                    rejtettszo.Append('\t');
+                }
+                else
+                {
+                    rejtettszo.Append('_');
+                }
+            }
+
+            return rejtettszo.ToString();
+        }
 
 
         private void BetuVizsgalat(char betu)
         {
-            if (eddigitippek.Contains(betu))
+            if (eddigitippek.Contains(betu) || eddigitippek.Contains(char.ToUpper(betu)) || eddigitippek.Contains(char.ToLower(betu)))
             {
                 MessageBox.Show($"Már próbáltad a(z) {betu} betűt!");
                 return;
@@ -247,11 +273,12 @@ namespace akasztofa
             {
                 eddigitippek.Add(betu);
 
-                if (ide.Contains(betu))
+                if (ide.Contains(betu) || ide.Contains(char.ToUpper(betu)) || ide.Contains(char.ToLower(betu)))
                 {
                     MessageBox.Show($"A(z) [{betu}] betű a szó része!");
                     UpdateDisplayedWord(betu);
-                    tippekszama++;
+                    UpdateDisplayedWord(char.ToLower(betu));
+                    UpdateDisplayedWord(char.ToUpper(betu));
                 }
                 else
                 {
@@ -279,14 +306,34 @@ namespace akasztofa
 
         private void szo_hajo(object sender, RoutedEventArgs e)
         {
+            char tema = Mainoldal.gamemode;
             string szova = szavastipp_tbox.Text;
             if (szova == kitalalndoszo)
             {
-                szavastipp_tbox.Text = "Kitaláltad a szót!";
+                //szavastipp_tbox.Text = "Kitaláltad a szót!";
+                MessageBox.Show("Kitaláltad a szót!");
                 szavastipp_tbox.IsEnabled = false;
                 szo_tipp.IsEnabled = false;
                 betu_tbox.IsEnabled = false;
                 betu_tipp.IsEnabled = false;
+
+
+                switch (tema)
+                {
+                    case 'm':
+                        nyertm++;
+                        break;
+                    case 'i':
+                        nyerti++;
+                        break;
+                    case 'b':
+                        nyertb++;
+                        break;
+                    case 'k':
+                        nyertk++;
+                        break;
+
+                }
             }
             else
             {

@@ -61,3 +61,24 @@ C:\Users\Fatér László\Documents\Visual Studio\Akaszdfelmagadfa\akasztofa\akas
 C:\Users\Fatér László\Documents\Visual Studio\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa.csproj.CoreCompileInputs.cache
 C:\Users\Fatér László\Documents\Visual Studio\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa.exe
 C:\Users\Fatér László\Documents\Visual Studio\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa.pdb
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\bin\Debug\akasztofa.exe.config
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\bin\Debug\akasztofa.exe
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\bin\Debug\akasztofa.pdb
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa.csproj.AssemblyReference.cache
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\Fooldal.g.cs
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\Mainoldal.g.cs
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\MainWindow.g.cs
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\Page1.g.cs
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\App.g.cs
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa_MarkupCompile.cache
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa_MarkupCompile.lref
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\Fooldal.baml
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\Mainoldal.baml
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\MainWindow.baml
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\Page1.baml
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa.g.resources
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa.Properties.Resources.resources
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa.csproj.GenerateResource.cache
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa.csproj.CoreCompileInputs.cache
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa.exe
+C:\Users\szabo.balint.kriszti\VSprojekt\ljuhzz\Akaszdfelmagadfa\akasztofa\akasztofa\obj\Debug\akasztofa.pdb
