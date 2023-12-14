@@ -304,7 +304,17 @@ namespace akasztofa
             if (szova == kitalalndoszo)
             {
                 //szavastipp_tbox.Text = "Kitaláltad a szót!";
-                MessageBox.Show("Kitaláltad a szót!");
+                switch (tema)
+                {
+                    case 'm':
+                    case 'i':
+                    case 'b':
+                        MessageBox.Show("Kitaláltad a szót!");
+                        break;
+                    case 'k':
+                        MessageBox.Show("Kitaláltad a mondatot!");
+                        break;
+                }
                 szavastipp_tbox.IsEnabled = false;
                 szo_tipp.IsEnabled = false;
                 betu_tbox.IsEnabled = false;
