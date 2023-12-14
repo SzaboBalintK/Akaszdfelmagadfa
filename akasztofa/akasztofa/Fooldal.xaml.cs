@@ -269,9 +269,9 @@ namespace akasztofa
                 if (ide.Contains(betu) || ide.Contains(char.ToUpper(betu)) || ide.Contains(char.ToLower(betu)))
                 {
                     MessageBox.Show($"A(z) [{betu}] betű a szó része!");
-                    UpdateDisplayedWord(betu);
-                    UpdateDisplayedWord(char.ToLower(betu));
-                    UpdateDisplayedWord(char.ToUpper(betu));
+                    Frissites(betu);
+                    Frissites(char.ToLower(betu));
+                    Frissites(char.ToUpper(betu));
                 }
                 else
                 {
@@ -282,7 +282,7 @@ namespace akasztofa
             }
             asdasd.Content = ($"Eddig tippelt betűk: {string.Join(" ", eddigitippek)}" + $"\nHibák száma: {jelenlegihiba} / {maxhiba}");
         }
-        private void UpdateDisplayedWord(char betu)
+        private void Frissites(char betu)
         {
             StringBuilder megjelenitettSzo = new StringBuilder(talalnivalo.Text);
             for (int i = 0; i < ide.Length; i++)
