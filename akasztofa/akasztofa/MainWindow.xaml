@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:akasztofa"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Akasztófa" Height="450" Width="800" MinHeight="400" MinWidth="750" MaxHeight="500" MaxWidth="900">
     <Grid>
         <Frame x:Name="sajatframe" NavigationUIVisibility="Hidden" />
     </Grid>
