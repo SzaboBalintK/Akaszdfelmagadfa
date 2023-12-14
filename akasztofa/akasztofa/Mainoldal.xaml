@@ -18,6 +18,7 @@
         <Button x:Name="info" Content="Informatika" HorizontalAlignment="Left" Margin="378,276,0,0" VerticalAlignment="Top" Click="info_button"/>
         <Button x:Name="matek" Content="Matematika" HorizontalAlignment="Left" Margin="562,276,0,0" VerticalAlignment="Top" Click="matek_button"/>
         <Label x:Name="hibauzenet" Content="Ide lesz majd hibauzenet, ha van" HorizontalAlignment="Left" Margin="339,373,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="mondatok_btn" Content="Közmondások" HorizontalAlignment="Left" Margin="264,286,0,0" VerticalAlignment="Top" Click="mondatok_button"/>
 
 
     </Grid>

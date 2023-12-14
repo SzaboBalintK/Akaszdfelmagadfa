@@ -56,6 +56,7 @@ namespace akasztofa
             biosz.Background = Brushes.LightBlue;
             info.Background = Brushes.WhiteSmoke;
             matek.Background = Brushes.WhiteSmoke;
+            mondatok_btn.Background = Brushes.WhiteSmoke;
             gamemode = 'b';
 
         }
@@ -66,6 +67,7 @@ namespace akasztofa
             biosz.Background = Brushes.WhiteSmoke;
             info.Background = Brushes.LightBlue;
             matek.Background = Brushes.WhiteSmoke;
+            mondatok_btn.Background = Brushes.WhiteSmoke;
             gamemode = 'i';
         }
 
@@ -75,7 +77,18 @@ namespace akasztofa
             biosz.Background = Brushes.WhiteSmoke;
             info.Background = Brushes.WhiteSmoke;
             matek.Background = Brushes.LightBlue;
+            mondatok_btn.Background = Brushes.WhiteSmoke;
             gamemode = 'm';
+        }
+
+        private void mondatok_button(object sender, RoutedEventArgs e)
+        {
+            mindenb = true;
+            biosz.Background = Brushes.WhiteSmoke;
+            info.Background = Brushes.WhiteSmoke;
+            matek.Background = Brushes.WhiteSmoke;
+            mondatok_btn.Background = Brushes.LightBlue;
+            gamemode = 'k';
         }
     }
 }
