@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -30,6 +31,7 @@ namespace akasztofa
         //static public bool matekbool = false;
         //static public bool biologiabool = false;
         //static public bool informatikabool = false;
+        static public string mainneve = Mainoldal.nev.Trim();
         public string nev;
         static public string kitalalndoszo;
         static public string ide;
@@ -186,21 +188,7 @@ namespace akasztofa
         {
             InitializeComponent();
             jatekos_betolt();
-            Jatek jatek = new Jatek();
-            //eredmenyek.Text = "ide jonnek majd az eredmenyek";
-            string mainoldalinev = Mainoldal.nev;
-            jatek.JatekosBelepese(mainoldalinev);
-            Jatekos jatekos = jatek.Jatekos;
             asdasd.Content = ($"Eddig tippelt betűk: {string.Join(" ", eddigitippek)}" + $"\nHibák száma: {jelenlegihiba} / {maxhiba}");
-            /*if (jatekos != null)
-            {
-                eredmenyek.Text = string.Join(Environment.NewLine, jatekos.Eredmenyek().Take(3));
-            }
-            else
-            {
-                eredmenyek.Text = "Player not found.";
-            }*/
-
             //jatek.JatekosokMentese();
             var ide = eredmenyek_beolvasas(Mainoldal.nev.Trim());
             eredmenyek.Text = atalakit(ide.First(), igazevalasz);
@@ -234,34 +222,33 @@ namespace akasztofa
         private List<string> eredmenyek_beolvasas(string neve)
         {
             List<string> eredmenyek = new List<string>();
-            //List<string> eredmenyek1 = new List<string>();
-            //eredmenyek.Add(neve.ToString() + ";0;0;0;0;0;0");
             foreach (string sor in File.ReadAllLines("jatekosok.txt"))
             {
-                //eredmenyek.Add(sor);
                 if (sor.Contains(neve) && igazevalasz != true)
                 {
-                    //eredmenyek.Clear();
                     eredmenyek.Add(sor);
                     igazevalasz = true;
                 }
-                /*else
-                {
-                    // If the name is not found, add a default line
-                    //eredmenyek.Add("Mindenki;0;0;0;0;0;0;0;0");
-                    //igazevalasz = false;
-                }*/
             }
             if(igazevalasz == false)
             {
                 eredmenyek.Add(neve.ToString() + ";0;0;0;0;0;0");
             }
-            // Check if the line starts with the specified name
-
-
             return eredmenyek;
         }
-
+        public void jatekosok_mentese_sajat(string jatekosneve, int a, int b, int c, int d, int e, int f, int g, int j)
+        {
+            List<string> eredmenyek = new List<string>();
+            foreach (string sor in File.ReadAllLines("jatekosok.txt"))
+            {
+                if (!sor.Contains(jatekosneve))
+                {
+                    eredmenyek.Add(sor);
+                }
+            }
+            eredmenyek.Add($"{jatekosneve};{a};{b};{c};{d};{e};{f};{g};{j}");
+            File.WriteAllLines("jatekosok.txt", eredmenyek);
+        }
 
         private void jatekos_betolt()
         {
@@ -380,8 +367,8 @@ namespace akasztofa
                 szo_tipp.IsEnabled = false;
                 betu_tbox.IsEnabled = false;
                 betu_tipp.IsEnabled = false;
-                //JatekosokMentese();
-
+                jatekosok_mentese_sajat(mainneve, nyertb, vesztettb, nyertm, vesztettm, nyerti, vesztetti, nyertk, vesztettk);
+                 //nyertb,vesztettb,nyertm,vesztettm,nyerti,vesztetti, nyertk}, vesztettk
                 switch (tema)
                 {
                     case 'm':
