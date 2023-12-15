@@ -51,7 +51,7 @@ namespace akasztofa
         private IEnumerable<Jatekos> jatekosok;
 
         class Szo
-        {//itt jonnek be a szavak
+        {
             public string Alak { get; set; }
             public char Tema { get; set; }
             public Szo(string sor)
@@ -71,7 +71,7 @@ namespace akasztofa
             public int nyerti { get; set; }
             public int vesztetti { get; set; }
             public Jatekos(string nev)
-            {//melyik témakörben nyert, nincs talalat
+            {
                 Nev = nev;
                 nyertb = 0;
                 vesztettb = 0;
@@ -166,7 +166,6 @@ namespace akasztofa
                     return true;
                 }
                 else return false;
-
             }
             public bool BetuVizsgalat(char betu)
             {
@@ -181,19 +180,14 @@ namespace akasztofa
                 }
                 return talalat;
             }
-
-
         }
         public Fooldal()
         {
             InitializeComponent();
             jatekos_betolt();
             asdasd.Content = ($"Eddig tippelt betűk: {string.Join(" ", eddigitippek)}" + $"\nHibák száma: {jelenlegihiba} / {maxhiba}");
-            //jatek.JatekosokMentese();
             var ide = eredmenyek_beolvasas(Mainoldal.nev.Trim());
             eredmenyek.Text = atalakit(ide.First(), igazevalasz);
-            //eredmenyek.Text = ide.First();
-
         }
 
         private string atalakit(string sor, bool igaze)
