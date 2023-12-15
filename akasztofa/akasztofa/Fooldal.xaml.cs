@@ -187,7 +187,7 @@ namespace akasztofa
             InitializeComponent();
             jatekos_betolt();
             Jatek jatek = new Jatek();
-            eredmenyek.Text = "ide jonnek majd az eredmenyek";
+            //eredmenyek.Text = "ide jonnek majd az eredmenyek";
             string mainoldalinev = Mainoldal.nev;
             jatek.JatekosBelepese(mainoldalinev);
             Jatekos jatekos = jatek.Jatekos;
@@ -202,9 +202,9 @@ namespace akasztofa
             }*/
 
             //jatek.JatekosokMentese();
-            var ide = eredmenyek_beolvasas(Mainoldal.nev);
-            //eredmenyek.Text = atalakit(ide.First(), igazevalasz);
-            eredmenyek.Text = ide.First();
+            var ide = eredmenyek_beolvasas(Mainoldal.nev.Trim());
+            eredmenyek.Text = atalakit(ide.First(), igazevalasz);
+            //eredmenyek.Text = ide.First();
 
         }
 
@@ -234,31 +234,33 @@ namespace akasztofa
         private List<string> eredmenyek_beolvasas(string neve)
         {
             List<string> eredmenyek = new List<string>();
-            List<string> eredmenyek1 = new List<string>();
-
+            //List<string> eredmenyek1 = new List<string>();
+            //eredmenyek.Add(neve.ToString() + ";0;0;0;0;0;0");
             foreach (string sor in File.ReadAllLines("jatekosok.txt"))
             {
-                eredmenyek.Add(sor);
-            }
-            // Check if the line starts with the specified name
-            for (int i = 0; i < eredmenyek.Count; i++)
-            {
-                if (eredmenyek.Contains(neve))
+                //eredmenyek.Add(sor);
+                if (sor.Contains(neve) && igazevalasz != true)
                 {
-                    eredmenyek.Add(eredmenyek[i]);
+                    //eredmenyek.Clear();
+                    eredmenyek.Add(sor);
                     igazevalasz = true;
                 }
-                else
+                /*else
                 {
                     // If the name is not found, add a default line
-                    eredmenyek1.Add("Mindenki;0;0;0;0;0;0;0;0");
+                    //eredmenyek.Add("Mindenki;0;0;0;0;0;0;0;0");
                     //igazevalasz = false;
-                }
-               
+                }*/
             }
-            return eredmenyek1;
-        }
+            if(igazevalasz == false)
+            {
+                eredmenyek.Add(neve.ToString() + ";0;0;0;0;0;0");
+            }
+            // Check if the line starts with the specified name
 
+
+            return eredmenyek;
+        }
 
 
         private void jatekos_betolt()
