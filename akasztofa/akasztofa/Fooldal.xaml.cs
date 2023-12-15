@@ -380,7 +380,7 @@ namespace akasztofa
                 szo_tipp.IsEnabled = false;
                 betu_tbox.IsEnabled = false;
                 betu_tipp.IsEnabled = false;
-                JatekosokMentese();
+                //JatekosokMentese();
 
                 switch (tema)
                 {
@@ -406,7 +406,7 @@ namespace akasztofa
                 szo_tipp.IsEnabled = false;
                 betu_tbox.IsEnabled = false;
                 betu_tipp.IsEnabled = false;
-                JatekosokMentese();
+                //JatekosokMentese();
 
                 switch (tema)
                 {
@@ -478,21 +478,21 @@ namespace akasztofa
                     break;
             }
         }
-        public void JatekosokMentese()
+        /*public void JatekosokMentese()
         {
             List<string> sorok = new List<string>();
             foreach (Jatekos jatekos in jatekosok) sorok.Add(jatekos.Sorra());
             File.WriteAllLines("jatekosok.txt", sorok);
-        }
+        }*/
 
-        public string[] Eredmenyek()
+        /*public string[] Eredmenyek()
         {
             string[] eredmenyek = new string[3];
             eredmenyek[0] = $"Biológia témakörben nyert: {nyertb}, vesztett {vesztettb} játékot.";
             eredmenyek[1] = $"Matematika témakörben nyert: {nyertm}, vesztett {vesztettm} játékot.";
             eredmenyek[2] = $"Informatika témakörben nyert: {nyerti}, vesztett {vesztetti} játékot.";
             return eredmenyek;
-        }
+        }*/
 
 
     }
