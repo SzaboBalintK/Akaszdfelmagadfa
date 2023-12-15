@@ -204,7 +204,7 @@ namespace akasztofa
                 vesztetti = Convert.ToInt32(adatok[6]);
                 nyertk = Convert.ToInt32(adatok[7]);
                 vesztettk = Convert.ToInt32(adatok[8]);
-                return $"Bilógia W: {nyertb}, L: {vesztettb}; Matematika W: {nyertm}, L: {vesztettm}; Informatika W: {nyerti}, L: {vesztetti}; Közmondások W: {nyertk}, L: {vesztettk}";
+                return $"Név: {nev}\nBilógia W: {nyertb}, L: {vesztettb}; Matematika W: {nyertm}, L: {vesztettm}; Informatika W: {nyerti}, L: {vesztetti}; Közmondások W: {nyertk}, L: {vesztettk}";
             }
             else
             {
