@@ -208,7 +208,9 @@ namespace akasztofa
             }
             else
             {
-                return "Még nincs eredmény a felhasználóról";
+                string[] adatok = sor.Split(';');
+                nev = adatok[0];
+                return $"Még nincs eredménye a {nev} nevű játékosnak!";
             }
 
         }
