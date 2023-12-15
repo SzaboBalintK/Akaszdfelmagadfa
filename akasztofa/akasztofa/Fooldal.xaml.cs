@@ -265,7 +265,7 @@ namespace akasztofa
                 int randomSzoIndex = random.Next(0, helyesSzavak.Count - 1);
 
                 Szo kitalalnivalo = helyesSzavak[randomSzoIndex];
-                kitalalndoszo = kitalalnivalo.Alak; // No need to convert to string
+                kitalalndoszo = kitalalnivalo.Alak;
                 ide = kitalalnivalo.Alak;
                 string rejtettSzo = Nincsures(kitalalnivalo.Alak);
 

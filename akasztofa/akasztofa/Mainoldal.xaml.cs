@@ -35,17 +35,28 @@ namespace akasztofa
 
         private void tovabb_button(object sender, RoutedEventArgs e)
         {
-            if (/*gamemode != null*/ mindenb == true)
+            nev = jatekos_nev.Text.Trim();
+            if (/*gamemode != null*/ mindenb == true && !String.IsNullOrWhiteSpace(nev))
             {
                 hibauzenet.Visibility = Visibility.Hidden;
-                nev = jatekos_nev.Text;
+                nev = jatekos_nev.Text.Trim();
                 Fooldal fooldalpage = new Fooldal();
                 NavigationService.Navigate(fooldalpage);
             }
-            else 
+            if (String.IsNullOrWhiteSpace(nev))
+            {
+                hibauzenet.Visibility = Visibility.Visible;
+                hibauzenet.Content = "Kérem írjon be egy nevet!";
+            }
+            if(mindenb == false)
             {
                 hibauzenet.Visibility = Visibility.Visible;
                 hibauzenet.Content = "Kérem válasszon egy témát!"; 
+            }
+            if(mindenb == false && String.IsNullOrWhiteSpace(nev))
+            {
+                hibauzenet.Visibility = Visibility.Visible;
+                hibauzenet.Content = "Kérem írjon be egy nevet és válasszon egy témát!";
             }
             
         }
