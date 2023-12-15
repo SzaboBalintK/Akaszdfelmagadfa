@@ -228,7 +228,7 @@ namespace akasztofa
             }
             if(igazevalasz == false)
             {
-                eredmenyek.Add(neve.ToString() + ";0;0;0;0;0;0");
+                eredmenyek.Add(neve.ToString() + $"{nyertb};{vesztettb};{nyertm};{vesztettm};{nyerti};{vesztetti};{nyertk};{vesztettk}");
             }
             return eredmenyek;
         }
@@ -360,7 +360,7 @@ namespace akasztofa
                 szo_tipp.IsEnabled = false;
                 betu_tbox.IsEnabled = false;
                 betu_tipp.IsEnabled = false;
-                jatekosok_mentese_sajat(mainneve, nyertb, vesztettb, nyertm, vesztettm, nyerti, vesztetti, nyertk, vesztettk);
+                
                  //nyertb,vesztettb,nyertm,vesztettm,nyerti,vesztetti, nyertk}, vesztettk
                 switch (tema)
                 {
@@ -377,6 +377,7 @@ namespace akasztofa
                         nyertk++;
                         break;
                 }
+                jatekosok_mentese_sajat(mainneve, nyertb, vesztettb, nyertm, vesztettm, nyerti, vesztetti, nyertk, vesztettk);
             }
             else
             {
@@ -403,6 +404,7 @@ namespace akasztofa
                         vesztettk++;
                         break;
                 }
+                jatekosok_mentese_sajat(mainneve, nyertb, vesztettb, nyertm, vesztettm, nyerti, vesztetti, nyertk, vesztettk);
             }
         }
 
