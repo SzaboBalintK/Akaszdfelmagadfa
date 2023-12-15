@@ -296,7 +296,6 @@ namespace akasztofa
             return rejtettszo.ToString();
         }
 
-
         private void BetuVizsgalat(char betu)
         {
             if (eddigitippek.Contains(betu) || eddigitippek.Contains(char.ToUpper(betu)) || eddigitippek.Contains(char.ToLower(betu)))
@@ -336,8 +335,6 @@ namespace akasztofa
             }
             talalnivalo.Text = megjelenitettSzo.ToString();
         }
-
-
 
         private void szo_hajo(object sender, RoutedEventArgs e)
         {
@@ -407,7 +404,6 @@ namespace akasztofa
             }
         }
 
-        //private bool nemrejtett = false;
         private void betu_hajo(object sender, RoutedEventArgs e)
         {
             char betutipp = Convert.ToChar(betu_tbox.Text.FirstOrDefault());
@@ -459,22 +455,5 @@ namespace akasztofa
                     break;
             }
         }
-        /*public void JatekosokMentese()
-        {
-            List<string> sorok = new List<string>();
-            foreach (Jatekos jatekos in jatekosok) sorok.Add(jatekos.Sorra());
-            File.WriteAllLines("jatekosok.txt", sorok);
-        }*/
-
-        /*public string[] Eredmenyek()
-        {
-            string[] eredmenyek = new string[3];
-            eredmenyek[0] = $"Biológia témakörben nyert: {nyertb}, vesztett {vesztettb} játékot.";
-            eredmenyek[1] = $"Matematika témakörben nyert: {nyertm}, vesztett {vesztettm} játékot.";
-            eredmenyek[2] = $"Informatika témakörben nyert: {nyerti}, vesztett {vesztetti} játékot.";
-            return eredmenyek;
-        }*/
-
-
     }
 }
