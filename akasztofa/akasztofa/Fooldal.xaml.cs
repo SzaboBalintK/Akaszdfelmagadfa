@@ -25,6 +25,11 @@ namespace akasztofa
 
     public partial class Fooldal : Page
     {
+        //static public string jatekosnevekod;
+        //static public bool jatekosnevekodvan = false;
+        //static public bool matekbool = false;
+        //static public bool biologiabool = false;
+        //static public bool informatikabool = false;
         public string nev;
         static public string kitalalndoszo;
         static public string ide;
@@ -87,15 +92,14 @@ namespace akasztofa
 
             public string Sorra()
             {
-                return $"{Nev};{nyertb};{vesztettb};{nyertm};{vesztettm};{nyerti};{vesztetti};{nyertk};{vesztettk}";
+                return $"{Mainoldal.nev};{nyertb};{vesztettb};{nyertm};{vesztettm};{nyerti};{vesztetti}";
             }
             public string[] Eredmenyek()
             {
-                string[] eredmenyek = new string[4];
-                eredmenyek[0] = $"Biológia W: {nyertb}, L {vesztettb} játékot.";
-                eredmenyek[1] = $"Matematika W: {nyertm}, L {vesztettm} játékot.";
-                eredmenyek[2] = $"Informatika W: {nyerti}, L {vesztetti} játékot.";
-                eredmenyek[3] = $"közmondások W: {nyertk}, L {vesztettk} játékot.";
+                string[] eredmenyek = new string[3];
+                eredmenyek[0] = $"Biológia témakörben nyert: {nyertb}, vesztett {vesztettb} játékot.";
+                eredmenyek[1] = $"Matematika témakörben nyert: {nyertm}, vesztett {vesztettm} játékot.";
+                eredmenyek[2] = $"Informatika témakörben nyert: {nyerti}, vesztett {vesztetti} játékot.";
                 return eredmenyek;
             }
 
@@ -160,7 +164,7 @@ namespace akasztofa
                     return true;
                 }
                 else return false;
-               
+
             }
             public bool BetuVizsgalat(char betu)
             {
@@ -175,18 +179,35 @@ namespace akasztofa
                 }
                 return talalat;
             }
-            
+
 
         }
         public Fooldal()
         {
             InitializeComponent();
             jatekos_betolt();
+            Jatek jatek = new Jatek();
+            eredmenyek.Text = "ide jonnek majd az eredmenyek";
             string mainoldalinev = Mainoldal.nev;
+            jatek.JatekosBelepese(mainoldalinev);
+            Jatekos jatekos = jatek.Jatekos;
             asdasd.Content = ($"Eddig tippelt betűk: {string.Join(" ", eddigitippek)}" + $"\nHibák száma: {jelenlegihiba} / {maxhiba}");
-            var ide = eredmenyek_beolvasas(mainoldalinev);
-            eredmenyek.Text = atalakit(ide.First(), igazevalasz);
+            /*if (jatekos != null)
+            {
+                eredmenyek.Text = string.Join(Environment.NewLine, jatekos.Eredmenyek().Take(3));
+            }
+            else
+            {
+                eredmenyek.Text = "Player not found.";
+            }*/
+
+            //jatek.JatekosokMentese();
+            var ide = eredmenyek_beolvasas(Mainoldal.nev);
+            //eredmenyek.Text = atalakit(ide.First(), igazevalasz);
+            eredmenyek.Text = ide.First();
+
         }
+
         private string atalakit(string sor, bool igaze)
         {
             if (igaze)
@@ -203,35 +224,42 @@ namespace akasztofa
                 vesztettk = Convert.ToInt32(adatok[8]);
                 return $"Bilógia W: {nyertb}, L: {vesztettb}; Matematika W: {nyertm}, L: {vesztettm}; Informatika W: {nyerti}, L: {vesztetti}; Közmondások W: {nyertk}, L: {vesztettk}";
             }
-            else 
-            { 
-                return "Még nincs eredmény a felhasználóról"; 
+            else
+            {
+                return "Még nincs eredmény a felhasználóról";
             }
-           
+
         }
 
-        private List<string> eredmenyek_beolvasas(string nev)
+        private List<string> eredmenyek_beolvasas(string neve)
         {
             List<string> eredmenyek = new List<string>();
+            List<string> eredmenyek1 = new List<string>();
 
             foreach (string sor in File.ReadAllLines("jatekosok.txt"))
             {
-                // Check if the line contains the specified name
-                if (sor.Contains(nev))
+                eredmenyek.Add(sor);
+            }
+            // Check if the line starts with the specified name
+            for (int i = 0; i < eredmenyek.Count; i++)
+            {
+                if (eredmenyek.Contains(neve))
                 {
-                    eredmenyek.Add(sor);
+                    eredmenyek.Add(eredmenyek[i]);
                     igazevalasz = true;
                 }
                 else
                 {
-                    //sosem lesz ilyen felhasználó
-                    eredmenyek.Add("Csak valami");
-                    igazevalasz = false;
+                    // If the name is not found, add a default line
+                    eredmenyek1.Add("Mindenki;0;0;0;0;0;0;0;0");
+                    //igazevalasz = false;
                 }
+               
             }
-
-            return eredmenyek;
+            return eredmenyek1;
         }
+
+
 
         private void jatekos_betolt()
         {
@@ -272,7 +300,8 @@ namespace akasztofa
                 {
                     rejtettszo.Append('\t');
                 }
-                if(character == ','){
+                if (character == ',')
+                {
                     rejtettszo.Append(',');
                 }
                 else
@@ -410,7 +439,7 @@ namespace akasztofa
             }
 
             asdasd.Content = ($"Eddig tippelt betűk: {string.Join(" ", eddigitippek)}" + $"\nHibák száma: {jelenlegihiba} / {maxhiba}");
-       
+
             switch (tippekszama)
             {
                 case 1:
@@ -456,11 +485,10 @@ namespace akasztofa
 
         public string[] Eredmenyek()
         {
-            string[] eredmenyek = new string[4];
-            eredmenyek[0] = $"Biológia W: {nyertb}, L {vesztettb} játékot.";
-            eredmenyek[1] = $"Matematika W: {nyertm}, L {vesztettm} játékot.";
-            eredmenyek[2] = $"Informatika W: {nyerti}, L {vesztetti} játékot.";
-            eredmenyek[3] = $"közmondások W: {nyertk}, L {vesztettk} játékot.";
+            string[] eredmenyek = new string[3];
+            eredmenyek[0] = $"Biológia témakörben nyert: {nyertb}, vesztett {vesztettb} játékot.";
+            eredmenyek[1] = $"Matematika témakörben nyert: {nyertm}, vesztett {vesztettm} játékot.";
+            eredmenyek[2] = $"Informatika témakörben nyert: {nyerti}, vesztett {vesztetti} játékot.";
             return eredmenyek;
         }
 
