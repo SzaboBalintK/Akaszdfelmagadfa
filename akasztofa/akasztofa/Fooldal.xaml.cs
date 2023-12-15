@@ -26,11 +26,6 @@ namespace akasztofa
 
     public partial class Fooldal : Page
     {
-        //static public string jatekosnevekod;
-        //static public bool jatekosnevekodvan = false;
-        //static public bool matekbool = false;
-        //static public bool biologiabool = false;
-        //static public bool informatikabool = false;
         static public string mainneve = Mainoldal.nev.Trim();
         public string nev;
         static public string kitalalndoszo;
@@ -92,7 +87,7 @@ namespace akasztofa
                 vesztetti = Convert.ToInt32(adatok[6]);
             }
 
-            public string Sorra()
+           /* public string Sorra()
             {
                 return $"{Mainoldal.nev};{nyertb};{vesztettb};{nyertm};{vesztettm};{nyerti};{vesztetti}";
             }
@@ -103,7 +98,7 @@ namespace akasztofa
                 eredmenyek[1] = $"Matematika témakörben nyert: {nyertm}, vesztett {vesztettm} játékot.";
                 eredmenyek[2] = $"Informatika témakörben nyert: {nyerti}, vesztett {vesztetti} játékot.";
                 return eredmenyek;
-            }
+            }*/
 
         }
         class Jatek
@@ -186,8 +181,8 @@ namespace akasztofa
             InitializeComponent();
             jatekos_betolt();
             asdasd.Content = ($"Eddig tippelt betűk: {string.Join(" ", eddigitippek)}" + $"\nHibák száma: {jelenlegihiba} / {maxhiba}");
-            var ide = eredmenyek_beolvasas(Mainoldal.nev.Trim());
-            eredmenyek.Text = atalakit(ide.First(), igazevalasz);
+            var lista = eredmenyek_beolvasas(mainneve);
+            eredmenyek.Text = atalakit(lista.First(), igazevalasz);
         }
 
         private string atalakit(string sor, bool igaze)
@@ -361,7 +356,7 @@ namespace akasztofa
                 betu_tbox.IsEnabled = false;
                 betu_tipp.IsEnabled = false;
                 
-                 //nyertb,vesztettb,nyertm,vesztettm,nyerti,vesztetti, nyertk}, vesztettk
+                 //nyertb,vesztettb,nyertm,vesztettm,nyerti,vesztetti, nyertk, vesztettk
                 switch (tema)
                 {
                     case 'm':
@@ -378,6 +373,7 @@ namespace akasztofa
                         break;
                 }
                 jatekosok_mentese_sajat(mainneve, nyertb, vesztettb, nyertm, vesztettm, nyerti, vesztetti, nyertk, vesztettk);
+                MessageBox.Show("Mentés kész!");
             }
             else
             {
@@ -387,7 +383,6 @@ namespace akasztofa
                 szo_tipp.IsEnabled = false;
                 betu_tbox.IsEnabled = false;
                 betu_tipp.IsEnabled = false;
-                //JatekosokMentese();
 
                 switch (tema)
                 {
@@ -405,6 +400,7 @@ namespace akasztofa
                         break;
                 }
                 jatekosok_mentese_sajat(mainneve, nyertb, vesztettb, nyertm, vesztettm, nyerti, vesztetti, nyertk, vesztettk);
+                MessageBox.Show("Mentés kész!");
             }
         }
 
