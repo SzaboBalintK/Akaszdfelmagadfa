@@ -245,9 +245,12 @@ namespace akasztofa
                 {
                     rejtettszo.Append('\t');
                 }
+                if(character == ','){
+                    rejtettszo.Append(',');
+                }
                 else
                 {
-                    rejtettszo.Append('_');
+                    rejtettszo.Append('*');
                 }
             }
 
