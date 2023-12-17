@@ -23,6 +23,7 @@ namespace akasztofa
     {
         static public string nev;
         static public bool mindenb = false;
+        static public bool lenyugozes = false;
         public static char gamemode;
         public Mainoldal()
         {
@@ -38,6 +39,11 @@ namespace akasztofa
             nev = jatekos_nev.Text.Trim();
             if (mindenb == true && !String.IsNullOrWhiteSpace(nev) && !nev.All(char.IsDigit))
             {
+                //csak extra miatt van benn
+                if (nev == "Sanyi")
+                {
+                    lenyugozes = true;
+                }
                 hibauzenet.Visibility = Visibility.Hidden;
                 nev = jatekos_nev.Text.Trim();
                 Fooldal fooldalpage = new Fooldal();
