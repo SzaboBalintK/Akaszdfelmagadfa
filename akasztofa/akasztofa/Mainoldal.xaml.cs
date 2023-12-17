@@ -36,7 +36,7 @@ namespace akasztofa
         private void tovabb_button(object sender, RoutedEventArgs e)
         {
             nev = jatekos_nev.Text.Trim();
-            if (/*gamemode != null*/ mindenb == true && !String.IsNullOrWhiteSpace(nev))
+            if (mindenb == true && !String.IsNullOrWhiteSpace(nev) && !nev.All(char.IsDigit))
             {
                 hibauzenet.Visibility = Visibility.Hidden;
                 nev = jatekos_nev.Text.Trim();
@@ -53,12 +53,16 @@ namespace akasztofa
                 hibauzenet.Visibility = Visibility.Visible;
                 hibauzenet.Content = "Kérem válasszon egy témát!"; 
             }
-            if(mindenb == false && String.IsNullOrWhiteSpace(nev))
+            if(mindenb == false && String.IsNullOrWhiteSpace(nev) && nev.All(char.IsDigit))
             {
                 hibauzenet.Visibility = Visibility.Visible;
                 hibauzenet.Content = "Kérem írjon be egy nevet és válasszon egy témát!";
             }
-            
+            if (nev.All(char.IsDigit) && !String.IsNullOrWhiteSpace(nev))
+            {
+                hibauzenet.Visibility = Visibility.Visible;
+                hibauzenet.Content = "A név nem tartalmazhat csak számokat!";
+            }
         }
 
         private void boiosz_button(object sender, RoutedEventArgs e)
