@@ -145,16 +145,31 @@ namespace akasztofa
         }
         public void jatekosok_mentese_sajat(string jatekosneve, int a, int b, int c, int d, int e, int f, int g, int j)
         {
-            List<string> eredmenyek = new List<string>();
+            List<Jatekos_sajat> eredmenyek = new List<Jatekos_sajat>();
+            List<string> eredmenyeksima = new List<string>();
+            //List<string> eredmenyekv = new List<string>();
             foreach (string sor in File.ReadAllLines("jatekosok.txt"))
             {
-                if (!sor.Contains(jatekosneve))
+                /*if (!sor.Contains(jatekosneve))
                 {
                     eredmenyek.Add(sor);
-                }
+                }*/
+                eredmenyek.Add(new Jatekos_sajat(sor));
+                eredmenyeksima.Add(sor);
+                
             }
-            eredmenyek.Add($"{jatekosneve};{a};{b};{c};{d};{e};{f};{g};{j}");
-            File.WriteAllLines("jatekosok.txt", eredmenyek);
+            var felhasznalo = eredmenyek.Find(x => x.Nev == jatekosneve);
+            var felhasznalo1 = eredmenyek.FindIndex(x => x.Nev == jatekosneve);
+            if (felhasznalo != null)
+            {
+                eredmenyeksima[felhasznalo1] = ($"{jatekosneve};{a};{b};{c};{d};{e};{f};{g};{j}");
+            }
+            else
+            {
+                eredmenyeksima.Add($"{jatekosneve};{a};{b};{c};{d};{e};{f};{g};{j}");
+            }
+            //eredmenyekv.Add($"{jatekosneve};{a};{b};{c};{d};{e};{f};{g};{j}");
+            File.WriteAllLines("jatekosok.txt", eredmenyeksima);
         }
 
         private void jatekos_betolt()
