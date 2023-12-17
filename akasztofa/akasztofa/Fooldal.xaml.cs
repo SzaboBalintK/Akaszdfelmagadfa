@@ -249,7 +249,7 @@ namespace akasztofa
                     jelenlegihiba++;
                 }
             }
-            asdasd.Content = ($"Eddig tippelt betűk: {string.Join(" ", eddigitippek)}" + $"\nHibák száma: {jelenlegihiba} / {maxhiba}");
+            
         }
         private void Frissites(char betu)
         {
@@ -383,6 +383,10 @@ namespace akasztofa
                 case 8:
                     ImageSource imageSource8 = new BitmapImage(new Uri("/kepek/9.png", UriKind.RelativeOrAbsolute));
                     mrincredible.Source = imageSource8;
+                betu_tbox.IsEnabled = false;
+                betu_tipp.IsEnabled = false;
+                betu_tbox.DataContext = tippekszama;
+                asdasd.Content = ($"Nem tippelhetsz több betűt!\nKérlek írj be egy szót/mondatot!");
                     break;
             }
         }
