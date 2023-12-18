@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
 
         <Label x:Name="program_label" Grid.Column="1" Grid.Row="0" Content="Akasztófa" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="25"/>
-        <Label x:Name="jatekos_neve_label" Grid.Column="1" Grid.Row="0" Content="Jatékos neve:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+        <Label x:Name="jatekos_neve_label" Grid.Column="1" Grid.Row="0" Content="Játékos neve:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
         <TextBox x:Name="jatekos_nev"  Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="200" Height="27"/>
         <Label Grid.Column="1" Grid.Row="1" Content="Témakör Választás:" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20"/>
         <Button x:Name="biosz" Grid.Column="0" Grid.Row="1" Content="Biológia" HorizontalAlignment="Left" VerticalAlignment="Bottom" Padding="10" Click="boiosz_button"/>
@@ -31,7 +31,7 @@
         <Button x:Name="matek" Grid.Column="1" Grid.Row="1" Content="Matematika" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="matek_button" Padding="10"/>
         <Button x:Name="mondatok_btn" Grid.Column="2" Grid.Row="1" Content="Közmondások" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="mondatok_button" Padding="10"/>
         <Button x:Name="tovabb" Grid.Column="2" Grid.Row="2" Content="Tovább" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="tovabb_button" Padding="20" Width="120"/>
-        <Label x:Name="hibauzenet" Content="Ide lesz majd hibauzenet, ha van" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label x:Name="hibauzenet" Content="Ide lesz majd hibauzenet, ha van" HorizontalAlignment="Left" Width="270" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

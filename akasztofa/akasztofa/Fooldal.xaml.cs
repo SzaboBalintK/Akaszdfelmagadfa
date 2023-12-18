@@ -205,7 +205,7 @@ namespace akasztofa
                 ide = kitalalnivalo.Alak;
                 string rejtettSzo = Nincsures(kitalalnivalo.Alak);
 
-                talalnivalo.Text = rejtettSzo + '\n' + kitalalnivalo.Alak;
+                talalnivalo.Text = rejtettSzo/* + '\n' + kitalalnivalo.Alak*/;
             }
         }
 
