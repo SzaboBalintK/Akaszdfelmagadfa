@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Security;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -205,7 +203,7 @@ namespace akasztofa
                 ide = kitalalnivalo.Alak;
                 string rejtettSzo = Nincsures(kitalalnivalo.Alak);
 
-                talalnivalo.Text = rejtettSzo /*+ '\n' + kitalalnivalo.Alak*/;
+                talalnivalo.Text = rejtettSzo/* + '\n' + kitalalnivalo.Alak*/;
             }
         }
 
@@ -223,7 +221,7 @@ namespace akasztofa
                 {
                     rejtettszo.Append(',');
                 }
-                else
+                if(!char.IsWhiteSpace(character) && character != ',')
                 {
                     rejtettszo.Append('*');
                 }
@@ -246,7 +244,7 @@ namespace akasztofa
                 if (ide.Contains(betu) || ide.Contains(char.ToUpper(betu)) || ide.Contains(char.ToLower(betu)))
                 {
                     MessageBox.Show($"A(z) [{betu}] betű a szó része!");
-                    Frissites(betu);
+                    //Frissites(betu);
                     Frissites(char.ToLower(betu));
                     Frissites(char.ToUpper(betu));
                 }
