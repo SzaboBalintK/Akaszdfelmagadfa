@@ -18,7 +18,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-//buzi felix
 namespace akasztofa
 {
     /// <summary>
