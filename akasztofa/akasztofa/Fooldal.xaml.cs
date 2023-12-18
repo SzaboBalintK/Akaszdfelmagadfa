@@ -205,7 +205,7 @@ namespace akasztofa
                 ide = kitalalnivalo.Alak;
                 string rejtettSzo = Nincsures(kitalalnivalo.Alak);
 
-                talalnivalo.Text = rejtettSzo/* + '\n' + kitalalnivalo.Alak*/;
+                talalnivalo.Text = rejtettSzo /*+ '\n' + kitalalnivalo.Alak*/;
             }
         }
 
@@ -257,6 +257,7 @@ namespace akasztofa
                     jelenlegihiba++;
                 }
             }
+            betu_tbox.Clear();
             
         }
         private void Frissites(char betu)
@@ -318,7 +319,7 @@ namespace akasztofa
             else
             {
                 //szavastipp_tbox.Text = "Ez sajnos nem sikerült!";
-                MessageBox.Show("Ez sajnos nem sikerült!");
+                MessageBox.Show($"Ez sajnos nem sikerült!\nA szó: {kitalalndoszo} volt.");
                 szavastipp_tbox.IsEnabled = false;
                 szo_tipp.IsEnabled = false;
                 betu_tbox.IsEnabled = false;
@@ -404,6 +405,7 @@ namespace akasztofa
         private void visszagomb(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+            betu_tbox.Clear();
         }
     }
 }
