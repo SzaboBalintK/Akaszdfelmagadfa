@@ -37,7 +37,7 @@ namespace akasztofa
         private void tovabb_button(object sender, RoutedEventArgs e)
         {
             nev = jatekos_nev.Text.Trim();
-            if (mindenb == true && !String.IsNullOrWhiteSpace(nev) && !nev.All(char.IsDigit) && !nev.EndsWith(";"))
+            if (mindenb == true && !String.IsNullOrWhiteSpace(nev) && !nev.All(char.IsDigit) && !nev.Contains(";"))
             {
                 //csak extra miatt van benn
                 if (nev == "Tyborg" || nev == "Tibor" || nev == "Rózsás" || nev == "Terminátor" || nev == "tyborg" || nev == "tibor" || nev == "rózsás" || nev == "terminátor" || nev == "terminator" || nev == "rozsas" || nev == "Terminator" || nev == "Rozsas" )
@@ -69,7 +69,7 @@ namespace akasztofa
                 hibauzenet.Visibility = Visibility.Visible;
                 hibauzenet.Content = "A név nem tartalmazhat csak számokat!";
             }
-            if (nev.EndsWith(";"))
+            if (nev.Contains(";"))
             {
                 hibauzenet.Visibility = Visibility.Visible;
                 hibauzenet.Content = "A név nem tartalmazhat ilyen [ ; ] karaktert!";
