@@ -40,7 +40,7 @@ namespace akasztofa
             if (mindenb == true && !String.IsNullOrWhiteSpace(nev) && !nev.All(char.IsDigit))
             {
                 //csak extra miatt van benn
-                if (nev == "Sanyi")
+                if (nev == "Tyborg" || nev == "Tibor" || nev == "Rózsás" || nev == "Terminátor" || nev == "tyborg" || nev == "tibor" || nev == "rózsás" || nev == "terminátor" || nev == "terminator" || nev == "rozsas" || nev == "Terminator" || nev == "Rozsas" )
                 {
                     lenyugozes = true;
                 }
