@@ -294,6 +294,7 @@ namespace akasztofa
                 szo_tipp.IsEnabled = false;
                 betu_tbox.IsEnabled = false;
                 betu_tipp.IsEnabled = false;
+                go_back.IsEnabled = true;
                 
                  //nyertb,vesztettb,nyertm,vesztettm,nyerti,vesztetti, nyertk, vesztettk
                 switch (tema)
@@ -322,6 +323,7 @@ namespace akasztofa
                 szo_tipp.IsEnabled = false;
                 betu_tbox.IsEnabled = false;
                 betu_tipp.IsEnabled = false;
+                go_back.IsEnabled = true;
 
                 switch (tema)
                 {
@@ -397,6 +399,11 @@ namespace akasztofa
                 asdasd.Content = ($"Nem tippelhetsz több betűt!\nKérlek írj be egy szót/mondatot!");
                     break;
             }
+        }
+
+        private void visszagomb(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }
